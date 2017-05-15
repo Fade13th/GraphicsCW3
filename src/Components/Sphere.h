@@ -13,7 +13,7 @@
 
 struct Vertex* makeSphere(int divisions, float radius);
 
-void addSphere(std::vector<GLuint>& vao, struct Vertex* sphere);
+void addSphere(std::vector<GLuint>& vaoArr, struct Vertex* sphere);
 
 void translateSphere(glm::vec3 translation, struct Vertex* sphere);
 

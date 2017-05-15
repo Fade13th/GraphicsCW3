@@ -11,7 +11,7 @@
 
 struct Vertex* makeCone();
 
-void addCone(std::vector<GLuint>& vao, struct Vertex* cone);
+void addCone(std::vector<GLuint>& vaoArr, struct Vertex* cone);
 
 void translateCone(glm::vec3 translation, struct Vertex* sphere);
 

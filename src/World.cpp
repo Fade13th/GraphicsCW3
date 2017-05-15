@@ -12,7 +12,7 @@ std::vector<GLuint> StaticBits;
 static int sphereSplits = 4;
 
 void SetupGeometry() {
-	struct Vertex* sphere = makeSphere(4, 1);
+	/*struct Vertex* sphere = makeSphere(4, 1);
 	translateSphere(glm::vec3(0.0f, 5.0f, 0.0f), sphere);
 	addSphere(StaticBits, sphere);
 
@@ -23,10 +23,13 @@ void SetupGeometry() {
 	struct Vertex* cone = makeCone();
 	translateCone(glm::vec3(1.8f, 0.0f, -2.0f), cone);
 	addCone(StaticBits, cone);
+	*/
+	makeColusseum(35.0f, 40.0f, 25.0f);
+	addColusseum(StaticBits);
 }
 
 void SetupShaders(void) {
-	//glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+	glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 
 	vertexsource = filetobuf("./World.vert");
 	fragmentsource = filetobuf("./World.frag");
@@ -62,8 +65,8 @@ void Render(int i) {
 	t = fmod(t, p);
 	angle = t * 360. / p;
 	glm::mat4 View = glm::mat4(1.);
-	View = glm::translate(View, glm::vec3(-5.0f, -5.0f, -8.0f));
-	View = glm::translate(View, glm::vec3(time*0.05f, time*0.05f, 0.0f));
+	View = glm::translate(View, glm::vec3(0.0f, 0.0f, -50.0f));
+	//View = glm::translate(View, glm::vec3(time*0.05f, time*0.05f, 0.0f));
 	View = glm::rotate(View, angle * -1.0f, glm::vec3(1.f, 0.f, 0.f));
 	glm::mat4 Model = glm::mat4(1.0);
 	glm::mat4 MVP = Projection * View * Model;

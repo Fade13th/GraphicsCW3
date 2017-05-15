@@ -8,7 +8,7 @@ static GLdouble* rotateXY(GLdouble point[], float theta) {
 	return n;
 }
 
-int size = 0;
+static int size = 0;
 
 struct Vertex* makeCone() {
 	int radials = 40;

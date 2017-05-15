@@ -22,7 +22,7 @@ static GLdouble* toBoundary(GLdouble a[], GLdouble b[], float radius) {
 	return toBoundary(combined, radius);
 }
 
-int s = 0;
+static int s = 0;
 
 struct Vertex* makeSphere(int divisions, float radius) {
 	int size = 24;

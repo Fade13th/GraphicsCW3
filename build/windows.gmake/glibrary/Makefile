@@ -45,6 +45,8 @@ OBJECTS := \
 	$(OBJDIR)/CW3.o \
 	$(OBJDIR)/utils.o \
 	$(OBJDIR)/World.o \
+	$(OBJDIR)/Colusseum.o \
+	$(OBJDIR)/ColusseumBase.o \
 	$(OBJDIR)/Cone.o \
 	$(OBJDIR)/Sphere.o \
 
@@ -115,6 +117,14 @@ $(OBJDIR)/utils.o: ../../../src/utils.cpp
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF $(@:%.o=%.d) -c "$<"
 
 $(OBJDIR)/World.o: ../../../src/World.cpp
+	@echo $(notdir $<)
+	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF $(@:%.o=%.d) -c "$<"
+
+$(OBJDIR)/Colusseum.o: ../../../src/Components/Colusseum.cpp
+	@echo $(notdir $<)
+	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF $(@:%.o=%.d) -c "$<"
+
+$(OBJDIR)/ColusseumBase.o: ../../../src/Components/ColusseumBase.cpp
 	@echo $(notdir $<)
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF $(@:%.o=%.d) -c "$<"
 
