@@ -38,9 +38,15 @@ void SetupGeometry();
 
 void SetupShaders(void);
 
-void Move(glm::vec3 translation);
+void IncreaseSpeed();
 
-void Rotate(GLfloat angle, glm::vec3 axis);
+void DecreaseSpeed();
+
+void RotateH(GLfloat angle);
+
+void RotateV(GLfloat angle);
+
+void MoveToPos(glm::vec3 pos);
 
 void Render(int i);
 #endif

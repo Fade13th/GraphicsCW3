@@ -72,12 +72,30 @@ static int time = 0;
 
 glm::mat4 View = glm::mat4(1.);
 
-void Move(glm::vec3 translation) {
-	View = glm::translate(View, translation);
+GLdouble speed = 0;
+GLdouble speedIncrement = 1;
+
+void IncreaseSpeed() {
+	speed += speedIncrement;
 }
 
-void Rotate(GLfloat angle, glm::vec3 axis) {
-	View = glm::rotate(View, angle * -1.0f, axis);
+void DecreaseSpeed() {
+	if (speed >= 0) {
+		speed -= speedIncrement;
+	}
+}
+
+void RotateH(GLfloat angle) {
+	View = glm::rotate(View, angle * -1.0f, glm::vec3(0,0,1));
+}
+
+void RotateV(GLfloat angle) {
+	View = glm::rotate(View, angle * -1.0f, glm::vec3(1, 0, 0));
+}
+
+void MoveToPos(glm::vec3 pos) {
+	View = glm::mat4(1.);
+	View = glm::translate(View, pos);
 }
 
 void Render(int i) {

@@ -46,8 +46,8 @@ int main(void) {
 	
 	Check("Load Scene");
 
-	Move(glm::vec3(0.0f, 0.0f, -10.0f));
-	Rotate(0.40f, glm::vec3(1.0f, 0.0f, 0.0f));
+	MoveToPos(glm::vec3(0.0f, 0.0f, -10.0f));
+	RotateV(0.40f);
 
 	while (!glfwWindowShouldClose(window)) {
 		Render(k);
