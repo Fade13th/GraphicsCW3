@@ -71,9 +71,11 @@ void SetupShaders(void) {
 static int time = 0;
 
 glm::mat4 View = glm::mat4(1.);
+glm::mat4 Rotation = glm::mat4(1.);
+glm::mat4 Transform = glm::mat4(1.);
 
-GLdouble speed = 0;
-GLdouble speedIncrement = 1;
+GLfloat speed = 0;
+GLfloat speedIncrement = 0.005;
 
 void IncreaseSpeed() {
 	speed += speedIncrement;
@@ -86,16 +88,32 @@ void DecreaseSpeed() {
 }
 
 void RotateH(GLfloat angle) {
-	View = glm::rotate(View, angle * -1.0f, glm::vec3(0,0,1));
+	Rotation = glm::rotate(Rotation, angle * 1.0f, glm::vec3(0, 0, 1));
+}
+
+void Roll(GLfloat angle) {
+	Rotation = glm::rotate(Rotation, angle * 1.0f, glm::vec3(0, 1, 1));
 }
 
 void RotateV(GLfloat angle) {
-	View = glm::rotate(View, angle * -1.0f, glm::vec3(1, 0, 0));
+	Rotation = glm::rotate(Rotation, angle * 1.0f, glm::vec3(1, 0, 0));
 }
 
 void MoveToPos(glm::vec3 pos) {
-	View = glm::mat4(1.);
-	View = glm::translate(View, pos);
+	Transform = glm::mat4(1.);
+	Transform = glm::translate(Transform, pos);
+}
+
+static void MoveCamera() {
+	if (speed > 0) {
+		glm::vec3 forward = glm::vec3(View[2]);
+		print((float)forward[0]); print((float)forward[1]); print((float)forward[2]);
+		Transform = glm::translate(Transform, speed * forward);
+	}
+
+	glm::vec3 tran = glm::vec3(Transform[3]);
+
+	View = glm::translate(Rotation, tran);
 }
 
 void Render(int i) {
@@ -110,10 +128,9 @@ void Render(int i) {
 	float p = 1000.;
 	t = fmod(t, p);
 	angle = t * 360. / p;
-	//glm::mat4 View = glm::mat4(1.);
-	//View = glm::translate(View, glm::vec3(0.0f, 0.0f, -10.0f));
-	//View = glm::translate(View, glm::vec3(time*0.05f, time*0.05f, 0.0f));
-	//View = glm::rotate(View, angle * -1.0f, glm::vec3(1.f, 0.f, 0.f));
+	
+	MoveCamera();
+
 	glm::mat4 Model = glm::mat4(1.0);
 	glm::mat4 MVP = Projection * View * Model;
 
