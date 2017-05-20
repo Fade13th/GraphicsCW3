@@ -34,10 +34,13 @@
 #include "Components\Colusseum.h"
 #include "Components\Triangle.h"
 
-
 void SetupGeometry();
 
 void SetupShaders(void);
+
+void Move(glm::vec3 translation);
+
+void Rotate(GLfloat angle, glm::vec3 axis);
 
 void Render(int i);
 #endif

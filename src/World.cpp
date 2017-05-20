@@ -69,6 +69,17 @@ void SetupShaders(void) {
 }
 
 static int time = 0;
+
+glm::mat4 View = glm::mat4(1.);
+
+void Move(glm::vec3 translation) {
+	View = glm::translate(View, translation);
+}
+
+void Rotate(GLfloat angle, glm::vec3 axis) {
+	View = glm::rotate(View, angle * -1.0f, axis);
+}
+
 void Render(int i) {
 	
 	if (time > 500)
@@ -81,10 +92,10 @@ void Render(int i) {
 	float p = 1000.;
 	t = fmod(t, p);
 	angle = t * 360. / p;
-	glm::mat4 View = glm::mat4(1.);
-	View = glm::translate(View, glm::vec3(0.0f, 0.0f, -10.0f));
+	//glm::mat4 View = glm::mat4(1.);
+	//View = glm::translate(View, glm::vec3(0.0f, 0.0f, -10.0f));
 	//View = glm::translate(View, glm::vec3(time*0.05f, time*0.05f, 0.0f));
-	View = glm::rotate(View, angle * -1.0f, glm::vec3(1.f, 0.f, 0.f));
+	//View = glm::rotate(View, angle * -1.0f, glm::vec3(1.f, 0.f, 0.f));
 	glm::mat4 Model = glm::mat4(1.0);
 	glm::mat4 MVP = Projection * View * Model;
 
