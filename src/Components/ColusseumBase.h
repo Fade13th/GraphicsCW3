@@ -11,7 +11,7 @@
 
 #include "../Vertex.h"
 
-struct Vertex* makeColusseumBase(float innerSize, float outerSize, float height);
+struct Vertex* makeColusseumBase(float innerSize, float outerSize, float height, glm::vec3 colour);
 
 void addColusseumBase(std::vector<GLuint>& vaoArr, std::vector<GLuint>& sizes, struct Vertex* colusseum);
 

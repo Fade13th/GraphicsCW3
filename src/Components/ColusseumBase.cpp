@@ -1,11 +1,7 @@
 #include "ColusseumBase.h"
 
 static int size = 0;
-static int sectors = 48;
-
-static float R = 0.4f;
-static float G = 0.4f;
-static float B = 0.2f;
+static int sectors = 64;
 
 static GLdouble* rotateXY(GLdouble point[], float theta) {
 	GLdouble* n = new GLdouble[3];
@@ -15,9 +11,13 @@ static GLdouble* rotateXY(GLdouble point[], float theta) {
 	return n;
 }
 
-struct Vertex* makeColusseumBase(float innerSize, float outerSize, float height) {
+struct Vertex* makeColusseumBase(float innerSize, float outerSize, float height, glm::vec3 colour) {
 	float innerRing[sectors][2];
 	float outerRing[sectors][2];
+
+	GLfloat R = colour[0];
+	GLfloat G = colour[1];
+	GLfloat B = colour[2];
 
 	GLdouble rotatePointInner[2] = { 0.0, innerSize };
 	GLdouble rotatePointOuter[2] = { 0.0, outerSize };
@@ -65,8 +65,8 @@ struct Vertex* makeColusseumBase(float innerSize, float outerSize, float height)
 
 
 		current[k++] = (Vertex) { { innerRing[i][0], innerRing[i][1], 0.0 }, { R, G, B } };
-		current[k++] = (Vertex) { { innerRing[i][0], innerRing[i][1], height }, { R, G, B } };
 		current[k++] = (Vertex) { { innerRing[j][0], innerRing[j][1], 0.0 }, { R, G, B } };
+		current[k++] = (Vertex) { { innerRing[i][0], innerRing[i][1], height }, { R, G, B } };
 
 		current[k++] = (Vertex) { { innerRing[j][0], innerRing[j][1], height }, { R, G, B } };
 		current[k++] = (Vertex) { { innerRing[i][0], innerRing[i][1], height }, { R, G, B } };
@@ -74,8 +74,8 @@ struct Vertex* makeColusseumBase(float innerSize, float outerSize, float height)
 
 
 		current[k++] = (Vertex) { { outerRing[i][0], outerRing[i][1], 0.0 }, { R, G, B } };
-		current[k++] = (Vertex) { { outerRing[i][0], outerRing[i][1], height }, { R, G, B } };
 		current[k++] = (Vertex) { { outerRing[j][0], outerRing[j][1], 0.0 }, { R, G, B } };
+		current[k++] = (Vertex) { { outerRing[i][0], outerRing[i][1], height }, { R, G, B } };
 
 		current[k++] = (Vertex) { { outerRing[j][0], outerRing[j][1], height }, { R, G, B } };
 		current[k++] = (Vertex) { { outerRing[i][0], outerRing[i][1], height }, { R, G, B } };
@@ -112,11 +112,36 @@ void addColusseumBase(std::vector<GLuint>& vaoArr, std::vector<GLuint>& sizes, s
 	sizes.push_back(size);
 }
 
-void translateColusseumBase(glm::vec3 translation, struct Vertex* colusseum) {
-	for (int i = 0; i < size; i++) {
-		GLdouble* pos = colusseum[i].position;
-		colusseum[i].position[0] = pos[0] + translation.x;
-		colusseum[i].position[1] = pos[1] + translation.y;
-		colusseum[i].position[2] = pos[2] + translation.z;
+void translateColusseumBase(glm::vec3 translation, struct Vertex* sphere) {
+	for (int i = 0; i < size; i += 3) {
+		GLdouble* pos1 = sphere[i].position;
+		GLdouble* pos2 = sphere[i + 1].position;
+		GLdouble* pos3 = sphere[i + 2].position;
+
+		sphere[i].position[0] = pos1[0] + translation.x;
+		sphere[i].position[1] = pos1[1] + translation.y;
+		sphere[i].position[2] = pos1[2] + translation.z;
+
+		sphere[i + 1].position[0] = pos2[0] + translation.x;
+		sphere[i + 1].position[1] = pos2[1] + translation.y;
+		sphere[i + 1].position[2] = pos2[2] + translation.z;
+
+		sphere[i + 2].position[0] = pos3[0] + translation.x;
+		sphere[i + 2].position[1] = pos3[1] + translation.y;
+		sphere[i + 2].position[2] = pos3[2] + translation.z;
+
+		GLdouble* norm = getNormal(pos1, pos2, pos3);
+
+		sphere[i].normal[0] = norm[0];
+		sphere[i].normal[1] = norm[1];
+		sphere[i].normal[2] = norm[2];
+
+		sphere[i + 1].normal[0] = norm[0];
+		sphere[i + 1].normal[1] = norm[1];
+		sphere[i + 1].normal[2] = norm[2];
+
+		sphere[i + 2].normal[0] = norm[0];
+		sphere[i + 2].normal[1] = norm[1];
+		sphere[i + 2].normal[2] = norm[2];
 	}
 }

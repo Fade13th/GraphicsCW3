@@ -1,4 +1,6 @@
-#include "Cone.h"
+#include "Floor.h"
+
+static int size = 0;
 
 static GLdouble* rotateXY(GLdouble point[], float theta) {
 	GLdouble* n = new GLdouble[3];
@@ -8,46 +10,39 @@ static GLdouble* rotateXY(GLdouble point[], float theta) {
 	return n;
 }
 
-static int s = 0;
-
-struct Vertex* makeCone(GLdouble radius, GLdouble height, glm::vec3 colour) {
-	int radials = 40;
-	s = radials * 2 * 3;
-
-	struct Vertex *current;
-	current = new struct Vertex[s];
+struct Vertex* makeFloor(float radius, glm::vec3 colour) {
+	int sectors = 40;
 
 	GLfloat R = colour[0];
 	GLfloat G = colour[1];
 	GLfloat B = colour[2];
 
-	int k = 0;
 	GLdouble rotatePoint[3] = { 0.0, radius, 0.0 };
 
-	current[0] = (Vertex) { { 0.0, 0.0, 0.0 }, { R,G,B } };
+	size = sectors * 3;
 
-	for (int i = 0; i < radials; i++) {
-		float theta1 = i * (2 * M_PI / radials);
-		float theta2 = (i + 1) * (2 * M_PI / radials);
-		
+	struct Vertex *current;
+	current = new struct Vertex[size];
+
+	int k = 0;
+
+	for (int i = 0; i < sectors; i++) {
+		float theta1 = i * (2 * M_PI / sectors);
+		float theta2 = (i + 1) * (2 * M_PI / sectors);
+
 		GLdouble* a = rotateXY(rotatePoint, theta1);
 		GLdouble* b = rotateXY(rotatePoint, theta2);
 		GLdouble* norm1 = getNormal(new GLdouble[3]{ 0,0,0 }, a, b);
-		GLdouble* norm2 = getNormal(a, new GLdouble[3]{ 0,0,height }, b);
 
-		current[k++] = (Vertex) { {b[0], b[1], b[2]}, { R,G,B }, {norm1[0], norm1[1], norm1[2]} };
-		current[k++] = (Vertex) { {a[0], a[1], a[2]}, { R,G,B }, {norm1[0], norm1[1], norm1[2]} };
-		current[k++] = (Vertex) { { 0.0, 0.0, 0.0 }, { R,G,B }, {norm1[0], norm1[1], norm1[2]} };
-
-		current[k++] = (Vertex) { {b[0], b[1], b[2]}, { R,G,B }, {norm2[0], norm2[1], norm2[2]} };
-		current[k++] = (Vertex) { {0.0, 0.0, height}, { R,G,B }, {norm2[0], norm2[1], norm2[2]} };
-		current[k++] = (Vertex) { {a[0], a[1], a[2]}, { R,G,B }, {norm2[0], norm2[1], norm2[2]} };
+		current[k++] = (Vertex) { {b[0], b[1], b[2]}, { R,G,B }, { norm1[0], norm1[1], norm1[2] } };
+		current[k++] = (Vertex) { { 0.0, 0.0, 0.0 }, { R,G,B }, { norm1[0], norm1[1], norm1[2] } };
+		current[k++] = (Vertex) { {a[0], a[1], a[2]}, { R,G,B }, { norm1[0], norm1[1], norm1[2] } };
 	}
 
 	return current;
 }
 
-void addCone(std::vector<GLuint>& vaoArr, std::vector<GLuint>& sizes, struct Vertex* cone) {
+void addFloor(std::vector<GLuint>& vaoArr, std::vector<GLuint>& sizes, struct Vertex* colusseum) {
 	GLuint vao, vbo[1];
 
 	glGenVertexArrays(1, &vao);
@@ -56,9 +51,8 @@ void addCone(std::vector<GLuint>& vaoArr, std::vector<GLuint>& sizes, struct Ver
 	glGenBuffers(1, vbo);
 
 	glBindBuffer(GL_ARRAY_BUFFER, vbo[0]);
-	print((float)s);
 
-	glBufferData(GL_ARRAY_BUFFER, (s) * sizeof(struct Vertex), cone, GL_STATIC_DRAW);
+	glBufferData(GL_ARRAY_BUFFER, size * sizeof(struct Vertex), colusseum, GL_STATIC_DRAW);
 
 	glVertexAttribPointer((GLuint)0, 3, GL_DOUBLE, GL_FALSE, sizeof(struct Vertex), (const GLvoid*)offsetof(struct Vertex, position));
 	glEnableVertexAttribArray(0);
@@ -72,14 +66,14 @@ void addCone(std::vector<GLuint>& vaoArr, std::vector<GLuint>& sizes, struct Ver
 	glBindVertexArray(0);
 
 	vaoArr.push_back(vao);
-	sizes.push_back(s);
+	sizes.push_back(size);
 }
 
-void translateCone(glm::vec3 translation, struct Vertex* sphere) {
-	for (int i = 0; i < s; i+=3) {
+void translateFloor(glm::vec3 translation, struct Vertex* sphere) {
+	for (int i = 0; i < size; i += 3) {
 		GLdouble* pos1 = sphere[i].position;
-		GLdouble* pos2 = sphere[i+1].position;
-		GLdouble* pos3 = sphere[i+2].position;
+		GLdouble* pos2 = sphere[i + 1].position;
+		GLdouble* pos3 = sphere[i + 2].position;
 
 		sphere[i].position[0] = pos1[0] + translation.x;
 		sphere[i].position[1] = pos1[1] + translation.y;

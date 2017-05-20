@@ -33,6 +33,8 @@
 #include "Components\Cone.h"
 #include "Components\Colusseum.h"
 #include "Components\Triangle.h"
+#include "Components\Cylinder.h"
+#include "Components\Tree.h"
 
 void SetupGeometry();
 

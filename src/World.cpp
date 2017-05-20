@@ -13,8 +13,8 @@ std::vector<GLuint> StaticBitSizes;
 static int sphereSplits = 4;
 
 void SetupGeometry() {
-	struct Vertex* sphere = makeSphere(4, 1);
-	translateSphere(glm::vec3(0.0f, 0.0f, 3.0f), sphere);
+	struct Vertex* sphere = makeSphere(4, 1, glm::vec3(1,1,0));
+	translateSphere(glm::vec3(0.0f, 3.0f, 3.0f), sphere);
 	addSphere(StaticBits, StaticBitSizes, sphere);
 
 	//struct Vertex* tri = makeTri();
@@ -24,16 +24,19 @@ void SetupGeometry() {
 	//translateSphere(glm::vec3(0.0f, -5.0f, 0.0f), sphere);
 	//addSphere(StaticBits, StaticBitSizes, sphere);
 	
-	struct Vertex* cone = makeCone();
+	//struct Vertex* cone = makeCone(1, 3, glm::vec3(0,1,0));
 	//translateCone(glm::vec3(1.8f, 0.0f, -2.0f), cone);
-	addCone(StaticBits, StaticBitSizes, cone);
-/*
-	cone = makeCone();
-	translateCone(glm::vec3(1.8f, 0.0f, 2.0f), cone);
-	addCone(StaticBits, StaticBitSizes, cone);
+	//addCone(StaticBits, StaticBitSizes, cone);
+
+	//cone = makeCone(1, 2, glm::vec3(0,1,0));
+	//translateCone(glm::vec3(1.8f, 0.0f, 2.0f), cone);
+	//addCone(StaticBits, StaticBitSizes, cone);
 	
-	makeColusseum(35.0f, 40.0f, 25.0f);
-	addColusseum(StaticBits, StaticBitSizes);*/
+	makeTree(glm::vec3(0, 0.4, 0.05));
+	addTree(StaticBits, StaticBitSizes);
+
+	makeColusseum(35.0f, 40.0f, 25.0f, glm::vec3(0.2f,0.3f,0.2f));
+	addColusseum(StaticBits, StaticBitSizes);
 }
 
 void SetupShaders(void) {
@@ -96,7 +99,7 @@ void Roll(GLfloat angle) {
 }
 
 void RotateV(GLfloat angle) {
-	Rotation = glm::rotate(Rotation, angle * 1.0f, glm::vec3(1, 0, 0));
+	Rotation = glm::rotate(Rotation, angle * -1.0f, glm::vec3(1, 0, 0));
 }
 
 void MoveToPos(glm::vec3 pos) {

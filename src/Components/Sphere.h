@@ -11,7 +11,7 @@
 
 #include "../Vertex.h"
 
-struct Vertex* makeSphere(int divisions, float radius);
+struct Vertex* makeSphere(int divisions, float radius, glm::vec3 colour);
 
 void addSphere(std::vector<GLuint>& vaoArr, std::vector<GLuint>& sizes, struct Vertex* sphere);
 

@@ -11,7 +11,7 @@
 
 #include "../Vertex.h"
 
-struct Vertex* makeCone();
+struct Vertex* makeCone(GLdouble radius, GLdouble height, glm::vec3 colour);
 
 void addCone(std::vector<GLuint>& vaoArr, std::vector<GLuint>& sizes, struct Vertex* cone);
 

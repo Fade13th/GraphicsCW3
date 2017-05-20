@@ -24,13 +24,13 @@ static GLdouble* toBoundary(GLdouble a[], GLdouble b[], float radius) {
 
 static int s = 0;
 
-struct Vertex* makeSphere(int divisions, float radius) {
+struct Vertex* makeSphere(int divisions, float radius, glm::vec3 colour) {
 	int size = 24;
 	s = size;
 
-	GLfloat R = 1.0f;
-	GLfloat G = 1.0f;
-	GLfloat B = 1.0f;
+	GLfloat R = colour[0];
+	GLfloat G = colour[1];
+	GLfloat B = colour[2];
 
 	struct Vertex *current;
 
@@ -154,10 +154,35 @@ void addSphere(std::vector<GLuint>& vaoArr, std::vector<GLuint>& sizes, struct V
 }
 
 void translateSphere(glm::vec3 translation, struct Vertex* sphere) {
-	for (int i = 0; i < s; i++) {
-		GLdouble* pos = sphere[i].position;
-		sphere[i].position[0] = pos[0] + translation.x;
-		sphere[i].position[1] = pos[1] + translation.y;
-		sphere[i].position[2] = pos[2] + translation.z;
+	for (int i = 0; i < s; i += 3) {
+		GLdouble* pos1 = sphere[i].position;
+		GLdouble* pos2 = sphere[i + 1].position;
+		GLdouble* pos3 = sphere[i + 2].position;
+
+		sphere[i].position[0] = pos1[0] + translation.x;
+		sphere[i].position[1] = pos1[1] + translation.y;
+		sphere[i].position[2] = pos1[2] + translation.z;
+
+		sphere[i + 1].position[0] = pos2[0] + translation.x;
+		sphere[i + 1].position[1] = pos2[1] + translation.y;
+		sphere[i + 1].position[2] = pos2[2] + translation.z;
+
+		sphere[i + 2].position[0] = pos3[0] + translation.x;
+		sphere[i + 2].position[1] = pos3[1] + translation.y;
+		sphere[i + 2].position[2] = pos3[2] + translation.z;
+
+		GLdouble* norm = getNormal(pos1, pos2, pos3);
+
+		sphere[i].normal[0] = norm[0];
+		sphere[i].normal[1] = norm[1];
+		sphere[i].normal[2] = norm[2];
+
+		sphere[i + 1].normal[0] = norm[0];
+		sphere[i + 1].normal[1] = norm[1];
+		sphere[i + 1].normal[2] = norm[2];
+
+		sphere[i + 2].normal[0] = norm[0];
+		sphere[i + 2].normal[1] = norm[1];
+		sphere[i + 2].normal[2] = norm[2];
 	}
 }
