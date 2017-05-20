@@ -26,6 +26,7 @@ static int s = 0;
 
 struct Vertex* makeSphere(int divisions, float radius) {
 	int size = 24;
+	s = size;
 
 	GLfloat R = 1.0f;
 	GLfloat G = 1.0f;
@@ -35,26 +36,33 @@ struct Vertex* makeSphere(int divisions, float radius) {
 
 	current = new Vertex[size]{
 		{ { 1.0, 0.0, 0.0 },{ R,  0.0f,  0.0f } },
-		{ { 0.0, 0.0, 1.0 },{ R,  0.0f,  0.0f } },
 		{ { 0.0, 1.0, 0.0 },{ R,  0.0f,  0.0f } },
+		{ { 0.0, 0.0, 1.0 },{ R,  0.0f,  0.0f } },
+
 		{ { -1.0, 0.0, 0.0 },{ 1.0f,  0.0f,  0.0f } },
 		{ { 0.0, 0.0, 1.0 },{ 1.0f,  0.0f,  0.0f } },
 		{ { 0.0, 1.0, 0.0 },{ 1.0f,  0.0f,  0.0f } },
+
 		{ { 1.0, 0.0, 0.0 },{ 1.0f,  0.0f,  0.0f } },
 		{ { 0.0, 0.0, 1.0 },{ 1.0f,  0.0f,  0.0f } },
 		{ { 0.0, -1.0, 0.0 },{ 1.0f,  0.0f,  0.0f } },
+
 		{ { -1.0, 0.0, 0.0 },{ 1.0f,  0.0f,  0.0f } },
+		{ { 0.0, -1.0, 0.0 },{ 1.0f,  0.0f,  0.0f } },
 		{ { 0.0, 0.0, 1.0 },{ 1.0f,  0.0f,  0.0f } },
-		{ { 0.0, -1.0, 0.0 },{ 1.0f,  0.0f,  0.0f } },
+
 		{ { 1.0, 0.0, 0.0 },{ 1.0f,  0.0f,  0.0f } },
 		{ { 0.0, 0.0, -1.0 },{ 1.0f,  0.0f,  0.0f } },
 		{ { 0.0, 1.0, 0.0 },{ 1.0f,  0.0f,  0.0f } },
+
 		{ { -1.0, 0.0, 0.0 },{ 1.0f,  0.0f,  0.0f } },
-		{ { 0.0, 0.0, -1.0 },{ 1.0f,  0.0f,  0.0f } },
 		{ { 0.0, 1.0, 0.0 },{ 1.0f,  0.0f,  0.0f } },
-		{ { 1.0, 0.0, 0.0 },{ 1.0f,  0.0f,  0.0f } },
 		{ { 0.0, 0.0, -1.0 },{ 1.0f,  0.0f,  0.0f } },
+
+		{ { 1.0, 0.0, 0.0 },{ 1.0f,  0.0f,  0.0f } },
 		{ { 0.0, -1.0, 0.0 },{ 1.0f,  0.0f,  0.0f } },
+		{ { 0.0, 0.0, -1.0 },{ 1.0f,  0.0f,  0.0f } },
+
 		{ { -1.0, 0.0, 0.0 },{ 1.0f,  0.0f,  0.0f } },
 		{ { 0.0, 0.0, -1.0 },{ 1.0f,  0.0f,  0.0f } },
 		{ { 0.0, -1.0, 0.0 },{ 1.0f,  0.0f,  0.0f } }
@@ -75,33 +83,41 @@ struct Vertex* makeSphere(int divisions, float radius) {
 			GLdouble *PosB1 = toBoundary(a.position, b.position, radius);
 			GLdouble *PosC1 = toBoundary(a.position, c.position, radius);
 
-			next[k++] = (Vertex) { { PosA1[0], PosA1[1], PosA1[2] }, { R, G, B } };
-			next[k++] = (Vertex) { { PosB1[0], PosB1[1], PosB1[2] }, { R, G, B } };
-			next[k++] = (Vertex) { { PosC1[0], PosC1[1], PosC1[2] }, { R, G, B } };
+			GLdouble* norm1 = getNormal(PosB1, PosA1, PosC1);
+
+			next[k++] = (Vertex) { { PosA1[0], PosA1[1], PosA1[2] }, { R, G, B }, {norm1[0], norm1[1], norm1[2]} };
+			next[k++] = (Vertex) { { PosB1[0], PosB1[1], PosB1[2] }, { R, G, B }, {norm1[0], norm1[1], norm1[2]} };
+			next[k++] = (Vertex) { { PosC1[0], PosC1[1], PosC1[2] }, { R, G, B }, {norm1[0], norm1[1], norm1[2]} };
 
 			GLdouble *PosA2 = toBoundary(b.position, radius);
-			GLdouble *PosB2 = toBoundary(a.position, b.position, radius);
-			GLdouble *PosC2 = toBoundary(b.position, c.position, radius);
+			GLdouble *PosB2 = toBoundary(b.position, c.position, radius);
+			GLdouble *PosC2 = toBoundary(a.position, b.position, radius);
 
-			next[k++] = (Vertex) { { PosA2[0], PosA2[1], PosA2[2] }, { R, G, B } };
-			next[k++] = (Vertex) { { PosB2[0], PosB2[1], PosB2[2] }, { R, G, B } };
-			next[k++] = (Vertex) { { PosC2[0], PosC2[1], PosC2[2] }, { R, G, B } };
+			GLdouble* norm2 = getNormal(PosA2, PosB2, PosC2);
+
+			next[k++] = (Vertex) { { PosA2[0], PosA2[1], PosA2[2] }, { R, G, B }, {norm2[0], norm2[1], norm2[2]} };
+			next[k++] = (Vertex) { { PosB2[0], PosB2[1], PosB2[2] }, { R, G, B }, {norm2[0], norm2[1], norm2[2]} };
+			next[k++] = (Vertex) { { PosC2[0], PosC2[1], PosC2[2] }, { R, G, B }, {norm2[0], norm2[1], norm2[2]} };
 
 			GLdouble *PosA3 = toBoundary(c.position, radius);
 			GLdouble *PosB3 = toBoundary(a.position, c.position, radius);
 			GLdouble *PosC3 = toBoundary(b.position, c.position, radius);
 
-			next[k++] = (Vertex) { { PosA3[0], PosA3[1], PosA3[2] }, { R, G, B } };
-			next[k++] = (Vertex) { { PosB3[0], PosB3[1], PosB3[2] }, { R, G, B } };
-			next[k++] = (Vertex) { { PosC3[0], PosC3[1], PosC3[2] }, { R, G, B } };
+			GLdouble* norm3 = getNormal(PosA3, PosB3, PosC3);
+
+			next[k++] = (Vertex) { { PosA3[0], PosA3[1], PosA3[2] }, { R, G, B }, {norm3[0], norm3[1], norm3[2]} };
+			next[k++] = (Vertex) { { PosB3[0], PosB3[1], PosB3[2] }, { R, G, B }, {norm3[0], norm3[1], norm3[2]} };
+			next[k++] = (Vertex) { { PosC3[0], PosC3[1], PosC3[2] }, { R, G, B }, {norm3[0], norm3[1], norm3[2]} };
 
 			GLdouble *PosA4 = toBoundary(a.position, b.position, radius);
 			GLdouble *PosB4 = toBoundary(b.position, c.position, radius);
 			GLdouble *PosC4 = toBoundary(a.position, c.position, radius);
 
-			next[k++] = (Vertex) { { PosA4[0], PosA4[1], PosA4[2] }, { R, G, B } };
-			next[k++] = (Vertex) { { PosB4[0], PosB4[1], PosB4[2] }, { R, G, B } };
-			next[k++] = (Vertex) { { PosC4[0], PosC4[1], PosC4[2] }, { R, G, B } };
+			GLdouble* norm4 = getNormal(PosA4, PosB4, PosC4);
+
+			next[k++] = (Vertex) { { PosA4[0], PosA4[1], PosA4[2] }, { R, G, B }, {norm4[0], norm4[1], norm4[2]} };
+			next[k++] = (Vertex) { { PosB4[0], PosB4[1], PosB4[2] }, { R, G, B }, {norm4[0], norm4[1], norm4[2]} };
+			next[k++] = (Vertex) { { PosC4[0], PosC4[1], PosC4[2] }, { R, G, B }, {norm4[0], norm4[1], norm4[2]} };
 		}
 		size *= 4;
 		current = next;
@@ -110,7 +126,7 @@ struct Vertex* makeSphere(int divisions, float radius) {
 	return current;
 }
 
-void addSphere(std::vector<GLuint>& vaoArr, struct Vertex* sphere) {
+void addSphere(std::vector<GLuint>& vaoArr, std::vector<GLuint>& sizes, struct Vertex* sphere) {
 	GLuint vao, vbo[1];
 
 	glGenVertexArrays(1, &vao);
@@ -126,11 +142,15 @@ void addSphere(std::vector<GLuint>& vaoArr, struct Vertex* sphere) {
 	glEnableVertexAttribArray(0);
 
 	glVertexAttribPointer((GLuint)1, 3, GL_FLOAT, GL_FALSE, sizeof(struct Vertex), (const GLvoid*)offsetof(struct Vertex, color));
-
 	glEnableVertexAttribArray(1);
+
+	glVertexAttribPointer((GLuint)2, 3, GL_FLOAT, GL_FALSE, sizeof(struct Vertex), (const GLvoid*)offsetof(struct Vertex, normal));
+	glEnableVertexAttribArray(2);
+
 	glBindVertexArray(0);
 
 	vaoArr.push_back(vao);
+	sizes.push_back(s);
 }
 
 void translateSphere(glm::vec3 translation, struct Vertex* sphere) {

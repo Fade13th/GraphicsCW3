@@ -44,6 +44,7 @@ endif
 OBJECTS := \
 	$(OBJDIR)/CW3.o \
 	$(OBJDIR)/utils.o \
+	$(OBJDIR)/Vertex.o \
 	$(OBJDIR)/World.o \
 
 RESOURCES := \
@@ -109,6 +110,10 @@ $(OBJDIR)/CW3.o: ../../../src/CW3.cpp
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF $(@:%.o=%.d) -c "$<"
 
 $(OBJDIR)/utils.o: ../../../src/utils.cpp
+	@echo $(notdir $<)
+	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF $(@:%.o=%.d) -c "$<"
+
+$(OBJDIR)/Vertex.o: ../../../src/Vertex.cpp
 	@echo $(notdir $<)
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF $(@:%.o=%.d) -c "$<"
 

@@ -1,8 +1,8 @@
-obj/Release/Sphere.o: ../../../src/Components/Sphere.cpp \
- ../../../src/Components/Sphere.h ../../../include/utils.h \
+obj/Release/Triangle.o: ../../../src/Components/Triangle.cpp \
+ ../../../src/Components/Triangle.h ../../../include/utils.h \
  ../../../src/Components/../Vertex.h ../../../src/Components/../utils.h
 
-../../../src/Components/Sphere.h:
+../../../src/Components/Triangle.h:
 
 ../../../include/utils.h:
 

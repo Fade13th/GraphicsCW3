@@ -7,11 +7,13 @@
 #include <stdlib.h>
 #include "utils.h"
 
+#include <vector>
+
 #include "../Vertex.h"
 
 struct Vertex* makeCone();
 
-void addCone(std::vector<GLuint>& vaoArr, struct Vertex* cone);
+void addCone(std::vector<GLuint>& vaoArr, std::vector<GLuint>& sizes, struct Vertex* cone);
 
 void translateCone(glm::vec3 translation, struct Vertex* sphere);
 

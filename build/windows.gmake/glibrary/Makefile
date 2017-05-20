@@ -44,11 +44,13 @@ endif
 OBJECTS := \
 	$(OBJDIR)/CW3.o \
 	$(OBJDIR)/utils.o \
+	$(OBJDIR)/Vertex.o \
 	$(OBJDIR)/World.o \
 	$(OBJDIR)/Colusseum.o \
 	$(OBJDIR)/ColusseumBase.o \
 	$(OBJDIR)/Cone.o \
 	$(OBJDIR)/Sphere.o \
+	$(OBJDIR)/Triangle.o \
 
 RESOURCES := \
 
@@ -116,6 +118,10 @@ $(OBJDIR)/utils.o: ../../../src/utils.cpp
 	@echo $(notdir $<)
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF $(@:%.o=%.d) -c "$<"
 
+$(OBJDIR)/Vertex.o: ../../../src/Vertex.cpp
+	@echo $(notdir $<)
+	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF $(@:%.o=%.d) -c "$<"
+
 $(OBJDIR)/World.o: ../../../src/World.cpp
 	@echo $(notdir $<)
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF $(@:%.o=%.d) -c "$<"
@@ -133,6 +139,10 @@ $(OBJDIR)/Cone.o: ../../../src/Components/Cone.cpp
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF $(@:%.o=%.d) -c "$<"
 
 $(OBJDIR)/Sphere.o: ../../../src/Components/Sphere.cpp
+	@echo $(notdir $<)
+	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF $(@:%.o=%.d) -c "$<"
+
+$(OBJDIR)/Triangle.o: ../../../src/Components/Triangle.cpp
 	@echo $(notdir $<)
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF $(@:%.o=%.d) -c "$<"
 

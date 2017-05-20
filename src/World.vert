@@ -1,17 +1,21 @@
-#version 400
-
-precision highp float;
-
+#version 330 core
 in vec3 in_Position;
 in vec3 in_Color;
+in vec3 in_Normal;
 
+uniform mat4 mvpmatrix;
 
-uniform mat4 mvpmatrix;  // mvpmatrix is the result of multiplying the model, view, and projection matrices
+// Declare an interface block; see 'Advanced GLSL' for what these are.
+out VS_OUT {
+    vec3 FragPos;
+    vec3 Color;
+    vec3 Normal;
+} vs_out;
 
-out vec3 ex_Color;
-void main(void) {
-
-    gl_Position = mvpmatrix * vec4(in_Position, 1.0); // Multiply the mvp matrix by the vertex to obtain our final vertex position
-    
-    ex_Color = in_Color;
+void main()
+{
+    gl_Position = mvpmatrix * vec4(in_Position, 1.0);
+    vs_out.FragPos = in_Position;
+	vs_out.Color = in_Color;
+    vs_out.Normal = in_Normal;
 }

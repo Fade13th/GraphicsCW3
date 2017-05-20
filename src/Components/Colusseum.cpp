@@ -14,10 +14,10 @@ void makeColusseum(float innerSize, float outerSize, float height) {
 	translateColusseumBase(glm::vec3(0, 0, 0.95f*height), roof);
 }
 
-void addColusseum(std::vector<GLuint>& vaoArr) {
-	addColusseumBase(vaoArr, base);
-	addColusseumBase(vaoArr, wall);
-	addColusseumBase(vaoArr, roof);
+void addColusseum(std::vector<GLuint>& vaoArr, std::vector<GLuint>& sizes) {
+	addColusseumBase(vaoArr, sizes, base);
+	addColusseumBase(vaoArr, sizes, wall);
+	addColusseumBase(vaoArr, sizes, roof);
 }
 
 void translateColusseum(glm::vec3 translation) {

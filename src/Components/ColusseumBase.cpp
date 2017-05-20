@@ -85,7 +85,7 @@ struct Vertex* makeColusseumBase(float innerSize, float outerSize, float height)
 	return current;
 }
 
-void addColusseumBase(std::vector<GLuint>& vaoArr, struct Vertex* colusseum) {
+void addColusseumBase(std::vector<GLuint>& vaoArr, std::vector<GLuint>& sizes, struct Vertex* colusseum) {
 	GLuint vao, vbo[1];
 
 	glGenVertexArrays(1, &vao);
@@ -101,11 +101,15 @@ void addColusseumBase(std::vector<GLuint>& vaoArr, struct Vertex* colusseum) {
 	glEnableVertexAttribArray(0);
 
 	glVertexAttribPointer((GLuint)1, 3, GL_FLOAT, GL_FALSE, sizeof(struct Vertex), (const GLvoid*)offsetof(struct Vertex, color));
-
 	glEnableVertexAttribArray(1);
+
+	glVertexAttribPointer((GLuint)2, 3, GL_FLOAT, GL_FALSE, sizeof(struct Vertex), (const GLvoid*)offsetof(struct Vertex, normal));
+	glEnableVertexAttribArray(2);
+
 	glBindVertexArray(0);
 
 	vaoArr.push_back(vao);
+	sizes.push_back(size);
 }
 
 void translateColusseumBase(glm::vec3 translation, struct Vertex* colusseum) {

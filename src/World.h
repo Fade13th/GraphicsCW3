@@ -32,6 +32,7 @@
 #include "Components\Sphere.h"
 #include "Components\Cone.h"
 #include "Components\Colusseum.h"
+#include "Components\Triangle.h"
 
 
 void SetupGeometry();

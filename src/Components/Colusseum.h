@@ -12,7 +12,7 @@
 
 void makeColusseum(float innerSize, float outerSize, float height);
 
-void addColusseum(std::vector<GLuint>& vaoArr);
+void addColusseum(std::vector<GLuint>& vaoArr, std::vector<GLuint>& sizes);
 
 void translateColusseum(glm::vec3 translation);
 
