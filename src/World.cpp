@@ -9,6 +9,8 @@ static GLuint vao, vao_cone, vbo[1], vbo_cone[1];
 
 std::vector<GLuint> StaticBits;
 std::vector<GLuint> StaticBitSizes;
+std::vector<GLuint> Tank;
+std::vector<GLuint> TankSize;
 
 static int sphereSplits = 4;
 
@@ -525,7 +527,7 @@ addTree(StaticBits, StaticBitSizes);
 
 	makeTank(glm::vec3(0.0f, 1.0f, 0.0f));
 	translateTank(glm::vec3(0.0f, -2.0f, 0.0f));
-	addTank(StaticBits, StaticBitSizes);
+	addTank(Tank, TankSize);
 }
 
 void SetupShaders(void) {
@@ -630,7 +632,7 @@ static void MoveCamera() {
 
 void Render(int i) {
 	
-	if (time > 500)
+	if (time > 360)
 		time = 0;
 
 	glm::vec3 light = glm::vec3(0.0f, 0.0f, 10.0f);
@@ -648,6 +650,10 @@ void Render(int i) {
 
 	glm::vec4 V = glm::vec4(1, 1, 1, 0) * View;
 
+	glUniform3fv(glGetUniformLocation(shaderprogram, "rotCenter"), 1, glm::value_ptr(glm::vec3(0, 0, 0)));
+	glUniform1f(glGetUniformLocation(shaderprogram, "angle"), 1);
+	glUniform1f(glGetUniformLocation(shaderprogram, "move"), 0);
+
 	glUniformMatrix4fv(glGetUniformLocation(shaderprogram, "mvpmatrix"), 1, GL_FALSE, glm::value_ptr(MVP));
 	glUniform3fv(glGetUniformLocation(shaderprogram, "lightPos"), 1, glm::value_ptr(light));
 	glUniform3fv(glGetUniformLocation(shaderprogram, "viewPos"), 1, glm::value_ptr(V));
@@ -660,6 +666,16 @@ void Render(int i) {
 		GLuint v = StaticBits.at(i);
 		glBindVertexArray(v);
 		glDrawArrays(GL_TRIANGLES, 0, StaticBitSizes.at(i));
+		glBindVertexArray(0);
+	}
+
+	for (int i = 0; i < Tank.size(); i++) {
+		glUniform3fv(glGetUniformLocation(shaderprogram, "rotCenter"), 1, glm::value_ptr(glm::vec3(0, -15.0, 0)));
+		glUniform1f(glGetUniformLocation(shaderprogram, "angle"), angle);
+		glUniform1f(glGetUniformLocation(shaderprogram, "move"), 1);
+
+		glBindVertexArray(Tank.at(i));
+		glDrawArrays(GL_TRIANGLES, 0, TankSize.at(i));
 		glBindVertexArray(0);
 	}
 

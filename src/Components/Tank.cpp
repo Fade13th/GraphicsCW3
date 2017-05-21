@@ -26,13 +26,13 @@ void makeTank(glm::vec3 colour) {
 
 
 	barrel1 = makeBarrel(0.1,2, colour);
-	translateBarrel(glm::vec3(-1.0, 0, 1.5), barrel1);
+	translateBarrel(glm::vec3(-1.0, 0, 1.65), barrel1);
 
 	barrel2 = makeBarrel(0.15, 0.1, colour);
-	translateBarrel(glm::vec3(-1.0, 0, 1.5), barrel2);
+	translateBarrel(glm::vec3(-1.0, 0, 1.65), barrel2);
 
-	barrel3 = makeBarrel(0.14, 0.01, glm::vec3(0,0,0));
-	translateBarrel(glm::vec3(-1.005, 0, 1.5), barrel3);
+	barrel3 = makeBarrel(0.1, 0.01, glm::vec3(0,0,0));
+	translateBarrel(glm::vec3(-1.005, 0, 1.65), barrel3);
 
 
 	Ltrack = makeTrack(0.45, 0.55, 0.5, glm::vec3(0.1f, 0.1f, 0.1f));
