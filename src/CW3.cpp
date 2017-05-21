@@ -1,8 +1,27 @@
 #include "CW3.h"
 
+int i = 0;
+
 static void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods) {
 	if ((key == GLFW_KEY_ESCAPE || key == GLFW_KEY_Q) && action == GLFW_PRESS)
 		glfwSetWindowShouldClose(window, GL_TRUE);
+
+	if ((key == GLFW_KEY_E) && (action == GLFW_PRESS)) {
+		i = 0;
+		EndTour();
+	}
+
+	if ((key == GLFW_KEY_SPACE) && (action == GLFW_PRESS)) {
+		Info();
+	}
+
+	if ((key == GLFW_KEY_T) && (action == GLFW_PRESS)) {
+		StartTour();
+		i = 0;
+		return;
+	}
+
+	if (IsTour()) return;
 
 	if ((key == GLFW_KEY_UP || key == GLFW_KEY_W) && (action == GLFW_PRESS || action == GLFW_REPEAT)) {
 		IncreaseSpeed();
@@ -82,7 +101,11 @@ int main(void) {
 	RotateX(90);
 
 	while (!glfwWindowShouldClose(window)) {
+		if (IsTour()) {
+			Tour(i);
 
+			i++;
+		}
 
 		Render(k);
 

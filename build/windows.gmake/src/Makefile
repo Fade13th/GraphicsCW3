@@ -43,6 +43,7 @@ endif
 
 OBJECTS := \
 	$(OBJDIR)/CW3.o \
+	$(OBJDIR)/Tour.o \
 	$(OBJDIR)/utils.o \
 	$(OBJDIR)/Vertex.o \
 	$(OBJDIR)/World.o \
@@ -106,6 +107,10 @@ $(GCH): $(PCH)
 endif
 
 $(OBJDIR)/CW3.o: ../../../src/CW3.cpp
+	@echo $(notdir $<)
+	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF $(@:%.o=%.d) -c "$<"
+
+$(OBJDIR)/Tour.o: ../../../src/Tour.cpp
 	@echo $(notdir $<)
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF $(@:%.o=%.d) -c "$<"
 

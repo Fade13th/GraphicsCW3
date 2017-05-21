@@ -29,6 +29,8 @@
 
 #include "Vertex.h"
 
+#include "Tour.h"
+
 #include "Components\Sphere.h"
 #include "Components\Cone.h"
 #include "Components\Colusseum.h"
@@ -55,6 +57,12 @@ void RotateY(GLfloat angle);
 void RotateZ(GLfloat angle);
 
 void MoveToPos(glm::vec3 pos);
+
+void SetForward(glm::vec3 target);
+
+void Info();
+
+void StopMove();
 
 void Render(int i);
 #endif

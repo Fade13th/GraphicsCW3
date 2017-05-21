@@ -620,6 +620,22 @@ void MoveToPos(glm::vec3 pos) {
 	Position = pos;
 }
 
+void SetForward(glm::vec3 target) {
+	ViewDir = target;
+	RightVector = glm::vec3(1, 0, 0);
+	UpVector = glm::vec3(0, 1, 0);
+}
+
+void Info() {
+	print(Position);
+	print(ViewDir);
+	print("");
+}
+
+void StopMove() {
+	speed = 0;
+}
+
 void Move(glm::vec3 Direction) {
 	Position = Position + (Direction * speed);
 }

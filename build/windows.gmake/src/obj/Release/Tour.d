@@ -1,5 +1,5 @@
-obj/Release/World.o: ../../../src/World.cpp ../../../src/World.h \
- ../../../src/utils.h ../../../src/Vertex.h ../../../src/Tour.h \
+obj/Release/Tour.o: ../../../src/Tour.cpp ../../../src/Tour.h \
+ ../../../src/utils.h ../../../src/World.h ../../../src/Vertex.h \
  ../../../src/Components\Sphere.h ../../../include/utils.h \
  ../../../src/Components\../Vertex.h ../../../src/Components\Cone.h \
  ../../../src/Components\Colusseum.h \
@@ -14,13 +14,13 @@ obj/Release/World.o: ../../../src/World.cpp ../../../src/World.h \
  ../../../src/Components\Trapezoid.h ../../../src/Components\Zepplin.h \
  ../../../src/Components\Balloon.h
 
-../../../src/World.h:
+../../../src/Tour.h:
 
 ../../../src/utils.h:
 
-../../../src/Vertex.h:
+../../../src/World.h:
 
-../../../src/Tour.h:
+../../../src/Vertex.h:
 
 ../../../src/Components\Sphere.h:
 
