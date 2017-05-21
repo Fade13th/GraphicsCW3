@@ -46,11 +46,11 @@ void IncreaseSpeed();
 
 void DecreaseSpeed();
 
-void RotateH(GLfloat angle);
+void RotateX(GLfloat angle);
 
-void Roll(GLfloat angle);
+void RotateY(GLfloat angle);
 
-void RotateV(GLfloat angle);
+void RotateZ(GLfloat angle);
 
 void MoveToPos(glm::vec3 pos);
 

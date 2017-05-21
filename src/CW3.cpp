@@ -4,36 +4,36 @@ static void key_callback(GLFWwindow* window, int key, int scancode, int action, 
 	if ((key == GLFW_KEY_ESCAPE || key == GLFW_KEY_Q) && action == GLFW_PRESS)
 		glfwSetWindowShouldClose(window, GL_TRUE);
 
-	if ((key == GLFW_KEY_UP || key == GLFW_KEY_W) && action == GLFW_PRESS) {
+	if ((key == GLFW_KEY_UP || key == GLFW_KEY_W) && (action == GLFW_PRESS || action == GLFW_REPEAT)) {
 		IncreaseSpeed();
 	}
 
-	if ((key == GLFW_KEY_DOWN || key == GLFW_KEY_S) && action == GLFW_PRESS) {
+	if ((key == GLFW_KEY_DOWN || key == GLFW_KEY_S) && (action == GLFW_PRESS || action == GLFW_REPEAT)) {
 		DecreaseSpeed();
 	}
 
 	if ((key == GLFW_KEY_LEFT || key == GLFW_KEY_A) && (action == GLFW_PRESS || action == GLFW_REPEAT)) {
-		RotateH(-0.1f);
+		RotateY(5.0f);
 	}
 
 	if ((key == GLFW_KEY_RIGHT || key == GLFW_KEY_D) && (action == GLFW_PRESS || action == GLFW_REPEAT)) {
-		RotateH(0.1f);
+		RotateY(-5.0f);
 	}
 
 	if ((key == GLFW_KEY_PAGE_UP || key == GLFW_KEY_LEFT_SHIFT) && (action == GLFW_PRESS || action == GLFW_REPEAT)) {
-		RotateV(0.1f);
+		RotateX(5.0f);
 	}
 
 	if ((key == GLFW_KEY_PAGE_DOWN || key == GLFW_KEY_LEFT_CONTROL) && (action == GLFW_PRESS || action == GLFW_REPEAT)) {
-		RotateV(-0.1f);
+		RotateX(-5.0f);
 	}
 
 	if ((key == GLFW_KEY_Z) && (action == GLFW_PRESS || action == GLFW_REPEAT)) {
-		Roll(-0.1f);
+		RotateZ(5.0f);
 	}
 
 	if ((key == GLFW_KEY_X) && (action == GLFW_PRESS || action == GLFW_REPEAT)) {
-		Roll(0.1f);
+		RotateZ(-5.0f);
 	}
 }
 
@@ -79,7 +79,7 @@ int main(void) {
 	Check("Load Scene");
 
 	MoveToPos(glm::vec3(0.0f, 0.0f, -10.0f));
-	RotateV(0.40f);
+	RotateY(0.40f);
 
 	while (!glfwWindowShouldClose(window)) {
 
