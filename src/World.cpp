@@ -492,10 +492,36 @@ addTree(StaticBits, StaticBitSizes);
 		addTree(StaticBits, StaticBitSizes);
 
 	}
+	{
+		struct Vertex* rock = makeRockLarge(glm::vec3(0.2f, 0.1f, 0.0f));
+		translateRockLarge(glm::vec3(-20.0f, -12.0f, 0.0f), rock);
+		addRockLarge(StaticBits, StaticBitSizes, rock);
 
-	struct Vertex* rock = makeRockLarge(glm::vec3(0.2f, 0.1f, 0.0f));
-	translateRockLarge(glm::vec3(2.0f, 0.0f, 0.0f), rock);
-	addRockLarge(StaticBits, StaticBitSizes, rock);
+		rock = makeRockLarge(glm::vec3(0.2f, 0.1f, 0.0f));
+		translateRockLarge(glm::vec3(18.0f, 18.0f, 0.0f), rock);
+		addRockLarge(StaticBits, StaticBitSizes, rock);
+
+		rock = makeRockLarge(glm::vec3(0.2f, 0.1f, 0.0f));
+		translateRockLarge(glm::vec3(-29.0f, 6.0f, 0.0f), rock);
+		addRockLarge(StaticBits, StaticBitSizes, rock);
+
+		rock = makeRockLarge(glm::vec3(0.2f, 0.1f, 0.0f));
+		translateRockLarge(glm::vec3(-19.0f, 0.0f, 0.0f), rock);
+		addRockLarge(StaticBits, StaticBitSizes, rock);
+
+		rock = makeRockLarge(glm::vec3(0.2f, 0.1f, 0.0f));
+		translateRockLarge(glm::vec3(-30.0f, -6.0f, 0.0f), rock);
+		addRockLarge(StaticBits, StaticBitSizes, rock);
+
+		rock = makeRockLarge(glm::vec3(0.2f, 0.1f, 0.0f));
+		translateRockLarge(glm::vec3(22.0f, -17.0f, 0.0f), rock);
+		addRockLarge(StaticBits, StaticBitSizes, rock);
+
+	}
+
+	makeBunker(2.0f, 2.05f, 1.3f, glm::vec3(0.3f, 0.3f, 0.3f));
+	translateBunker(glm::vec3(20.0f, 3.0f, 0.0f));
+	addBunker(StaticBits, StaticBitSizes);
 
 	makeTank(glm::vec3(0.0f, 1.0f, 0.0f));
 	translateTank(glm::vec3(0.0f, -2.0f, 0.0f));

@@ -37,6 +37,7 @@
 #include "Components\Tree.h"
 #include "Components\RockLarge.h"
 #include "Components\Tank.h"
+#include "Components\Bunker.h"
 
 void SetupGeometry();
 

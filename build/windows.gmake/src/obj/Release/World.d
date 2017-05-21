@@ -9,7 +9,9 @@ obj/Release/World.o: ../../../src/World.cpp ../../../src/World.h \
  ../../../src/Components\Cylinder.h ../../../src/Components\RockLarge.h \
  ../../../src/Components\Tank.h ../../../src/Components\TankBody.h \
  ../../../src/Components\Wheel.h ../../../src/Components\Track.h \
- ../../../src/Components\Turret.h ../../../src/Components\Barrel.h
+ ../../../src/Components\Turret.h ../../../src/Components\Barrel.h \
+ ../../../src/Components\Bunker.h ../../../src/Components\Rectangle.h \
+ ../../../src/Components\Trapezoid.h
 
 ../../../src/World.h:
 
@@ -54,3 +56,9 @@ obj/Release/World.o: ../../../src/World.cpp ../../../src/World.h \
 ../../../src/Components\Turret.h:
 
 ../../../src/Components\Barrel.h:
+
+../../../src/Components\Bunker.h:
+
+../../../src/Components\Rectangle.h:
+
+../../../src/Components\Trapezoid.h:

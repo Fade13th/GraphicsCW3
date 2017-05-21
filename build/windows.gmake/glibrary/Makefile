@@ -47,16 +47,19 @@ OBJECTS := \
 	$(OBJDIR)/Vertex.o \
 	$(OBJDIR)/World.o \
 	$(OBJDIR)/Barrel.o \
+	$(OBJDIR)/Bunker.o \
 	$(OBJDIR)/Colusseum.o \
 	$(OBJDIR)/ColusseumBase.o \
 	$(OBJDIR)/Cone.o \
 	$(OBJDIR)/Cylinder.o \
 	$(OBJDIR)/Floor.o \
+	$(OBJDIR)/Rectangle.o \
 	$(OBJDIR)/RockLarge.o \
 	$(OBJDIR)/Sphere.o \
 	$(OBJDIR)/Tank.o \
 	$(OBJDIR)/TankBody.o \
 	$(OBJDIR)/Track.o \
+	$(OBJDIR)/Trapezoid.o \
 	$(OBJDIR)/Tread.o \
 	$(OBJDIR)/Tree.o \
 	$(OBJDIR)/Triangle.o \
@@ -141,6 +144,10 @@ $(OBJDIR)/Barrel.o: ../../../src/Components/Barrel.cpp
 	@echo $(notdir $<)
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF $(@:%.o=%.d) -c "$<"
 
+$(OBJDIR)/Bunker.o: ../../../src/Components/Bunker.cpp
+	@echo $(notdir $<)
+	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF $(@:%.o=%.d) -c "$<"
+
 $(OBJDIR)/Colusseum.o: ../../../src/Components/Colusseum.cpp
 	@echo $(notdir $<)
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF $(@:%.o=%.d) -c "$<"
@@ -161,6 +168,10 @@ $(OBJDIR)/Floor.o: ../../../src/Components/Floor.cpp
 	@echo $(notdir $<)
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF $(@:%.o=%.d) -c "$<"
 
+$(OBJDIR)/Rectangle.o: ../../../src/Components/Rectangle.cpp
+	@echo $(notdir $<)
+	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF $(@:%.o=%.d) -c "$<"
+
 $(OBJDIR)/RockLarge.o: ../../../src/Components/RockLarge.cpp
 	@echo $(notdir $<)
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF $(@:%.o=%.d) -c "$<"
@@ -178,6 +189,10 @@ $(OBJDIR)/TankBody.o: ../../../src/Components/TankBody.cpp
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF $(@:%.o=%.d) -c "$<"
 
 $(OBJDIR)/Track.o: ../../../src/Components/Track.cpp
+	@echo $(notdir $<)
+	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF $(@:%.o=%.d) -c "$<"
+
+$(OBJDIR)/Trapezoid.o: ../../../src/Components/Trapezoid.cpp
 	@echo $(notdir $<)
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF $(@:%.o=%.d) -c "$<"
 
