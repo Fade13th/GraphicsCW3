@@ -60,10 +60,10 @@ struct Vertex* makeWheel(GLdouble radius, GLdouble height, glm::vec3 colour) {
 	}
 
 	for (int i = 0; i < s; i++) {
-		GLdouble x = current[i].position[0];
+		GLdouble x = current[i].position[1];
 		GLdouble z = current[i].position[2];
 
-		current[i].position[0] = z;
+		current[i].position[1] = z;
 		current[i].position[2] = x;
 	}
 

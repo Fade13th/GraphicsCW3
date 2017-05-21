@@ -110,6 +110,13 @@ struct Vertex* makeTrack(float innerSize, float outerSize, float height, glm::ve
 		current[k++] = (Vertex) { { outerRing[j][0], outerRing[j][1], 0.0 }, { R, G, B } };
 	}
 
+	for (int i = 0; i < size; i++) {
+		GLdouble x = current[i].position[1];
+		GLdouble z = current[i].position[2];
+
+		current[i].position[1] = z;
+		current[i].position[2] = x;
+	}
 	return current;
 }
 

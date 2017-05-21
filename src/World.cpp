@@ -42,12 +42,8 @@ void SetupGeometry() {
 	translateRockLarge(glm::vec3(2.0f, 0.0f, 0.0f), rock);
 	addRockLarge(StaticBits, StaticBitSizes, rock);
 
-	/*struct Vertex* wheel = makeWheel(0.3, 0.1, glm::vec3(0.2f, 0.2f, 0.2f));
-	translateWheel(glm::vec3(0.0f, 0.0f, 0.3f), wheel);
-	addWheel(StaticBits, StaticBitSizes, wheel);*/
-
-	struct Vertex* track = makeTrack(0.3, 0.35, 0.2, glm::vec3(0.2f, 0.2f, 0.2f));
-	addTrack(StaticBits, StaticBitSizes, track);
+	makeTread(glm::vec3(0.2f, 0.2f, 0.2f));
+	addTread(StaticBits, StaticBitSizes);
 }
 
 void SetupShaders(void) {

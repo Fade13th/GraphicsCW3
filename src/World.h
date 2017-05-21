@@ -36,8 +36,7 @@
 #include "Components\Cylinder.h"
 #include "Components\Tree.h"
 #include "Components\RockLarge.h"
-#include "Components\Wheel.h"
-#include "Components\Track.h"
+#include "Components\Tread.h"
 
 void SetupGeometry();
 

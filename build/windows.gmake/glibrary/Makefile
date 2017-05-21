@@ -54,6 +54,7 @@ OBJECTS := \
 	$(OBJDIR)/RockLarge.o \
 	$(OBJDIR)/Sphere.o \
 	$(OBJDIR)/Track.o \
+	$(OBJDIR)/Tread.o \
 	$(OBJDIR)/Tree.o \
 	$(OBJDIR)/Triangle.o \
 	$(OBJDIR)/Wheel.o \
@@ -161,6 +162,10 @@ $(OBJDIR)/Sphere.o: ../../../src/Components/Sphere.cpp
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF $(@:%.o=%.d) -c "$<"
 
 $(OBJDIR)/Track.o: ../../../src/Components/Track.cpp
+	@echo $(notdir $<)
+	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF $(@:%.o=%.d) -c "$<"
+
+$(OBJDIR)/Tread.o: ../../../src/Components/Tread.cpp
 	@echo $(notdir $<)
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF $(@:%.o=%.d) -c "$<"
 
