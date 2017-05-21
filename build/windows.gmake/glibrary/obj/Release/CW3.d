@@ -6,7 +6,8 @@ obj/Release/CW3.o: ../../../src/CW3.cpp ../../../src/CW3.h \
  ../../../src/Components\ColusseumBase.h ../../../src/Components\Floor.h \
  ../../../src/Components\Triangle.h ../../../src/Components\Cylinder.h \
  ../../../src/Components\Tree.h ../../../src/Components\Cone.h \
- ../../../src/Components\Cylinder.h
+ ../../../src/Components\Cylinder.h ../../../src/Components\RockLarge.h \
+ ../../../src/Components\Wheel.h ../../../src/Components\Track.h
 
 ../../../src/CW3.h:
 
@@ -39,3 +40,9 @@ obj/Release/CW3.o: ../../../src/CW3.cpp ../../../src/CW3.h \
 ../../../src/Components\Cone.h:
 
 ../../../src/Components\Cylinder.h:
+
+../../../src/Components\RockLarge.h:
+
+../../../src/Components\Wheel.h:
+
+../../../src/Components\Track.h:

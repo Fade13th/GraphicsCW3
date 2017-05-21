@@ -32,11 +32,22 @@ void SetupGeometry() {
 	//translateCone(glm::vec3(1.8f, 0.0f, 2.0f), cone);
 	//addCone(StaticBits, StaticBitSizes, cone);
 	
-	makeTree(glm::vec3(0, 0.4, 0.05));
-	addTree(StaticBits, StaticBitSizes);
+	//makeTree(glm::vec3(0, 0.4, 0.05));
+	//addTree(StaticBits, StaticBitSizes);
 
 	makeColusseum(35.0f, 40.0f, 25.0f, glm::vec3(0.2f,0.3f,0.2f));
 	addColusseum(StaticBits, StaticBitSizes);
+
+	struct Vertex* rock = makeRockLarge(glm::vec3(0.2, 0.1, 0));
+	translateRockLarge(glm::vec3(2.0f, 0.0f, 0.0f), rock);
+	addRockLarge(StaticBits, StaticBitSizes, rock);
+
+	/*struct Vertex* wheel = makeWheel(0.3, 0.1, glm::vec3(0.2f, 0.2f, 0.2f));
+	translateWheel(glm::vec3(0.0f, 0.0f, 0.3f), wheel);
+	addWheel(StaticBits, StaticBitSizes, wheel);*/
+
+	struct Vertex* track = makeTrack(0.3, 0.35, 0.2, glm::vec3(0.2f, 0.2f, 0.2f));
+	addTrack(StaticBits, StaticBitSizes, track);
 }
 
 void SetupShaders(void) {

@@ -51,9 +51,12 @@ OBJECTS := \
 	$(OBJDIR)/Cone.o \
 	$(OBJDIR)/Cylinder.o \
 	$(OBJDIR)/Floor.o \
+	$(OBJDIR)/RockLarge.o \
 	$(OBJDIR)/Sphere.o \
+	$(OBJDIR)/Track.o \
 	$(OBJDIR)/Tree.o \
 	$(OBJDIR)/Triangle.o \
+	$(OBJDIR)/Wheel.o \
 
 RESOURCES := \
 
@@ -149,7 +152,15 @@ $(OBJDIR)/Floor.o: ../../../src/Components/Floor.cpp
 	@echo $(notdir $<)
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF $(@:%.o=%.d) -c "$<"
 
+$(OBJDIR)/RockLarge.o: ../../../src/Components/RockLarge.cpp
+	@echo $(notdir $<)
+	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF $(@:%.o=%.d) -c "$<"
+
 $(OBJDIR)/Sphere.o: ../../../src/Components/Sphere.cpp
+	@echo $(notdir $<)
+	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF $(@:%.o=%.d) -c "$<"
+
+$(OBJDIR)/Track.o: ../../../src/Components/Track.cpp
 	@echo $(notdir $<)
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF $(@:%.o=%.d) -c "$<"
 
@@ -158,6 +169,10 @@ $(OBJDIR)/Tree.o: ../../../src/Components/Tree.cpp
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF $(@:%.o=%.d) -c "$<"
 
 $(OBJDIR)/Triangle.o: ../../../src/Components/Triangle.cpp
+	@echo $(notdir $<)
+	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF $(@:%.o=%.d) -c "$<"
+
+$(OBJDIR)/Wheel.o: ../../../src/Components/Wheel.cpp
 	@echo $(notdir $<)
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF $(@:%.o=%.d) -c "$<"
 
