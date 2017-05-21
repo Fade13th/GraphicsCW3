@@ -11,6 +11,8 @@ std::vector<GLuint> StaticBits;
 std::vector<GLuint> StaticBitSizes;
 std::vector<GLuint> Tank;
 std::vector<GLuint> TankSize;
+std::vector<GLuint> Zepplin;
+std::vector<GLuint> ZepplinSize;
 
 static int sphereSplits = 4;
 
@@ -528,6 +530,10 @@ addTree(StaticBits, StaticBitSizes);
 	makeTank(glm::vec3(0.0f, 1.0f, 0.0f));
 	translateTank(glm::vec3(0.0f, -2.0f, 0.0f));
 	addTank(Tank, TankSize);
+
+	makeZepplin(glm::vec3(0.3, 0.3, 0.5));
+	translateZepplin(glm::vec3(0, 25, 25));
+	addZepplin(Zepplin, ZepplinSize);
 }
 
 void SetupShaders(void) {
@@ -659,7 +665,7 @@ void Render(int i) {
 	glUniform3fv(glGetUniformLocation(shaderprogram, "viewPos"), 1, glm::value_ptr(V));
 	glUniform1f(glGetUniformLocation(shaderprogram, "blinn"), 1);
 
-	glClearColor(0.0, 0.0, 0.0, 1.0);
+	glClearColor(0.0, 0.5, 0.65, 1.0);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 	for (int i = 0; i < StaticBits.size(); i++) {
@@ -676,6 +682,16 @@ void Render(int i) {
 
 		glBindVertexArray(Tank.at(i));
 		glDrawArrays(GL_TRIANGLES, 0, TankSize.at(i));
+		glBindVertexArray(0);
+	}
+
+	for (int i = 0; i < Zepplin.size(); i++) {
+		glUniform3fv(glGetUniformLocation(shaderprogram, "rotCenter"), 1, glm::value_ptr(glm::vec3(0, 0, 0)));
+		glUniform1f(glGetUniformLocation(shaderprogram, "angle"), angle/4);
+		glUniform1f(glGetUniformLocation(shaderprogram, "move"), 1);
+
+		glBindVertexArray(Zepplin.at(i));
+		glDrawArrays(GL_TRIANGLES, 0, ZepplinSize.at(i));
 		glBindVertexArray(0);
 	}
 

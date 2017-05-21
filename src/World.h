@@ -38,6 +38,7 @@
 #include "Components\RockLarge.h"
 #include "Components\Tank.h"
 #include "Components\Bunker.h"
+#include "Components\Zepplin.h"
 
 void SetupGeometry();
 

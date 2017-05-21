@@ -46,6 +46,7 @@ OBJECTS := \
 	$(OBJDIR)/utils.o \
 	$(OBJDIR)/Vertex.o \
 	$(OBJDIR)/World.o \
+	$(OBJDIR)/Balloon.o \
 	$(OBJDIR)/Barrel.o \
 	$(OBJDIR)/Bunker.o \
 	$(OBJDIR)/Colusseum.o \
@@ -65,6 +66,7 @@ OBJECTS := \
 	$(OBJDIR)/Triangle.o \
 	$(OBJDIR)/Turret.o \
 	$(OBJDIR)/Wheel.o \
+	$(OBJDIR)/Zepplin.o \
 
 RESOURCES := \
 
@@ -137,6 +139,10 @@ $(OBJDIR)/Vertex.o: ../../../src/Vertex.cpp
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF $(@:%.o=%.d) -c "$<"
 
 $(OBJDIR)/World.o: ../../../src/World.cpp
+	@echo $(notdir $<)
+	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF $(@:%.o=%.d) -c "$<"
+
+$(OBJDIR)/Balloon.o: ../../../src/Components/Balloon.cpp
 	@echo $(notdir $<)
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF $(@:%.o=%.d) -c "$<"
 
@@ -213,6 +219,10 @@ $(OBJDIR)/Turret.o: ../../../src/Components/Turret.cpp
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF $(@:%.o=%.d) -c "$<"
 
 $(OBJDIR)/Wheel.o: ../../../src/Components/Wheel.cpp
+	@echo $(notdir $<)
+	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF $(@:%.o=%.d) -c "$<"
+
+$(OBJDIR)/Zepplin.o: ../../../src/Components/Zepplin.cpp
 	@echo $(notdir $<)
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF $(@:%.o=%.d) -c "$<"
 
