@@ -36,7 +36,7 @@
 #include "Components\Cylinder.h"
 #include "Components\Tree.h"
 #include "Components\RockLarge.h"
-#include "Components\Tread.h"
+#include "Components\Tank.h"
 
 void SetupGeometry();
 

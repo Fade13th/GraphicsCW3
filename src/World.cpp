@@ -13,9 +13,9 @@ std::vector<GLuint> StaticBitSizes;
 static int sphereSplits = 4;
 
 void SetupGeometry() {
-	struct Vertex* sphere = makeSphere(4, 1, glm::vec3(1,1,0));
-	translateSphere(glm::vec3(0.0f, 3.0f, 3.0f), sphere);
-	addSphere(StaticBits, StaticBitSizes, sphere);
+	//struct Vertex* sphere = makeSphere(4, 1, glm::vec3(1,1,0));
+	//translateSphere(glm::vec3(0.0f, 3.0f, 3.0f), sphere);
+	//addSphere(StaticBits, StaticBitSizes, sphere);
 
 	//struct Vertex* tri = makeTri();
 	//addTri(StaticBits, StaticBitSizes, tri);
@@ -38,12 +38,13 @@ void SetupGeometry() {
 	makeColusseum(35.0f, 40.0f, 25.0f, glm::vec3(0.2f,0.3f,0.2f));
 	addColusseum(StaticBits, StaticBitSizes);
 
-	struct Vertex* rock = makeRockLarge(glm::vec3(0.2, 0.1, 0));
+	struct Vertex* rock = makeRockLarge(glm::vec3(0.2f, 0.1f, 0.0f));
 	translateRockLarge(glm::vec3(2.0f, 0.0f, 0.0f), rock);
 	addRockLarge(StaticBits, StaticBitSizes, rock);
 
-	makeTread(glm::vec3(0.2f, 0.2f, 0.2f));
-	addTread(StaticBits, StaticBitSizes);
+	makeTank(glm::vec3(0.0f, 1.0f, 0.0f));
+	translateTank(glm::vec3(0.0f, -2.0f, 0.0f));
+	addTank(StaticBits, StaticBitSizes);
 }
 
 void SetupShaders(void) {

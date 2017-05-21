@@ -1,4 +1,4 @@
-#include "ColusseumBase.h"
+#include "Track.h"
 
 static int size = 0;
 static int sectors = 64;
@@ -23,7 +23,7 @@ struct Vertex* makeTrack(float innerSize, float outerSize, float height, glm::ve
 	GLdouble rotatePointOuter[2] = { 0.0, outerSize };
 
 	int i = 0;
-	GLdouble modifier = -0.5;
+	GLdouble modifier = -0.8;
 
 	for (int j = 0; j < sectors + 2; j++) {
 		if (j == (((sectors + 2) / 2))) {
@@ -33,7 +33,7 @@ struct Vertex* makeTrack(float innerSize, float outerSize, float height, glm::ve
 			outerRing[j][0] = outerRing[j - 1][0] + 1;
 			outerRing[j][1] = outerRing[j - 1][1];
 
-			modifier = 1.5;
+			modifier = 1.8;
 
 			continue;
 		}

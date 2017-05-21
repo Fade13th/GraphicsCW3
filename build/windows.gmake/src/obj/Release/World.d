@@ -7,8 +7,9 @@ obj/Release/World.o: ../../../src/World.cpp ../../../src/World.h \
  ../../../src/Components\Triangle.h ../../../src/Components\Cylinder.h \
  ../../../src/Components\Tree.h ../../../src/Components\Cone.h \
  ../../../src/Components\Cylinder.h ../../../src/Components\RockLarge.h \
- ../../../src/Components\Tread.h ../../../src/Components\Wheel.h \
- ../../../src/Components\Track.h
+ ../../../src/Components\Tank.h ../../../src/Components\TankBody.h \
+ ../../../src/Components\Wheel.h ../../../src/Components\Track.h \
+ ../../../src/Components\Turret.h ../../../src/Components\Barrel.h
 
 ../../../src/World.h:
 
@@ -42,8 +43,14 @@ obj/Release/World.o: ../../../src/World.cpp ../../../src/World.h \
 
 ../../../src/Components\RockLarge.h:
 
-../../../src/Components\Tread.h:
+../../../src/Components\Tank.h:
+
+../../../src/Components\TankBody.h:
 
 ../../../src/Components\Wheel.h:
 
 ../../../src/Components\Track.h:
+
+../../../src/Components\Turret.h:
+
+../../../src/Components\Barrel.h:

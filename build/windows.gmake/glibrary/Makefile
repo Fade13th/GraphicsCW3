@@ -46,6 +46,7 @@ OBJECTS := \
 	$(OBJDIR)/utils.o \
 	$(OBJDIR)/Vertex.o \
 	$(OBJDIR)/World.o \
+	$(OBJDIR)/Barrel.o \
 	$(OBJDIR)/Colusseum.o \
 	$(OBJDIR)/ColusseumBase.o \
 	$(OBJDIR)/Cone.o \
@@ -53,10 +54,13 @@ OBJECTS := \
 	$(OBJDIR)/Floor.o \
 	$(OBJDIR)/RockLarge.o \
 	$(OBJDIR)/Sphere.o \
+	$(OBJDIR)/Tank.o \
+	$(OBJDIR)/TankBody.o \
 	$(OBJDIR)/Track.o \
 	$(OBJDIR)/Tread.o \
 	$(OBJDIR)/Tree.o \
 	$(OBJDIR)/Triangle.o \
+	$(OBJDIR)/Turret.o \
 	$(OBJDIR)/Wheel.o \
 
 RESOURCES := \
@@ -133,6 +137,10 @@ $(OBJDIR)/World.o: ../../../src/World.cpp
 	@echo $(notdir $<)
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF $(@:%.o=%.d) -c "$<"
 
+$(OBJDIR)/Barrel.o: ../../../src/Components/Barrel.cpp
+	@echo $(notdir $<)
+	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF $(@:%.o=%.d) -c "$<"
+
 $(OBJDIR)/Colusseum.o: ../../../src/Components/Colusseum.cpp
 	@echo $(notdir $<)
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF $(@:%.o=%.d) -c "$<"
@@ -161,6 +169,14 @@ $(OBJDIR)/Sphere.o: ../../../src/Components/Sphere.cpp
 	@echo $(notdir $<)
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF $(@:%.o=%.d) -c "$<"
 
+$(OBJDIR)/Tank.o: ../../../src/Components/Tank.cpp
+	@echo $(notdir $<)
+	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF $(@:%.o=%.d) -c "$<"
+
+$(OBJDIR)/TankBody.o: ../../../src/Components/TankBody.cpp
+	@echo $(notdir $<)
+	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF $(@:%.o=%.d) -c "$<"
+
 $(OBJDIR)/Track.o: ../../../src/Components/Track.cpp
 	@echo $(notdir $<)
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF $(@:%.o=%.d) -c "$<"
@@ -174,6 +190,10 @@ $(OBJDIR)/Tree.o: ../../../src/Components/Tree.cpp
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF $(@:%.o=%.d) -c "$<"
 
 $(OBJDIR)/Triangle.o: ../../../src/Components/Triangle.cpp
+	@echo $(notdir $<)
+	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF $(@:%.o=%.d) -c "$<"
+
+$(OBJDIR)/Turret.o: ../../../src/Components/Turret.cpp
 	@echo $(notdir $<)
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF $(@:%.o=%.d) -c "$<"
 
