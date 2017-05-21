@@ -71,31 +71,427 @@ float operator* (glm::vec3 v, glm::vec3 u)	//dot product
 	return v.x*u.x + v.y*u.y + v.z*u.z;
 }
 
-void SetupGeometry() {
-	//struct Vertex* sphere = makeSphere(4, 1, glm::vec3(1,1,0));
-	//translateSphere(glm::vec3(0.0f, 3.0f, 3.0f), sphere);
-	//addSphere(StaticBits, StaticBitSizes, sphere);
-
-	//struct Vertex* tri = makeTri();
-	//addTri(StaticBits, StaticBitSizes, tri);
-
-	//sphere = makeSphere(4, 1);
-	//translateSphere(glm::vec3(0.0f, -5.0f, 0.0f), sphere);
-	//addSphere(StaticBits, StaticBitSizes, sphere);
-	
-	//struct Vertex* cone = makeCone(1, 3, glm::vec3(0,1,0));
-	//translateCone(glm::vec3(1.8f, 0.0f, -2.0f), cone);
-	//addCone(StaticBits, StaticBitSizes, cone);
-
-	//cone = makeCone(1, 2, glm::vec3(0,1,0));
-	//translateCone(glm::vec3(1.8f, 0.0f, 2.0f), cone);
-	//addCone(StaticBits, StaticBitSizes, cone);
-	
-	//makeTree(glm::vec3(0, 0.4, 0.05));
-	//addTree(StaticBits, StaticBitSizes);
-
+void SetupGeometry() {	
 	makeColusseum(35.0f, 40.0f, 25.0f, glm::vec3(0.2f,0.3f,0.2f));
 	addColusseum(StaticBits, StaticBitSizes);
+	{
+		makeTree(glm::vec3(0, 0.4, 0.05));
+		translateTree(glm::vec3(-20, 20, 0));
+		addTree(StaticBits, StaticBitSizes);
+
+		makeTree(glm::vec3(0, 0.4, 0.05));
+		translateTree(glm::vec3(-28, 0, 0));
+		addTree(StaticBits, StaticBitSizes);
+
+		makeTree(glm::vec3(0, 0.4, 0.05));
+		translateTree(glm::vec3(0, 28, 0));
+		addTree(StaticBits, StaticBitSizes);
+
+		makeTree(glm::vec3(0, 0.4, 0.05));
+		translateTree(glm::vec3(-5, 5, 0));
+		addTree(StaticBits, StaticBitSizes);
+
+		makeTree(glm::vec3(0, 0.4, 0.05));
+		translateTree(glm::vec3(-21, 18, 0));
+		addTree(StaticBits, StaticBitSizes);
+
+		makeTree(glm::vec3(0, 0.4, 0.05));
+		translateTree(glm::vec3(-19, 17, 0));
+		addTree(StaticBits, StaticBitSizes);
+
+		makeTree(glm::vec3(0, 0.4, 0.05));
+		translateTree(glm::vec3(-7, 15, 0));
+		addTree(StaticBits, StaticBitSizes);
+
+		makeTree(glm::vec3(0, 0.4, 0.05));
+		translateTree(glm::vec3(-6, 13, 0));
+		addTree(StaticBits, StaticBitSizes);
+
+		makeTree(glm::vec3(0, 0.4, 0.05));
+		translateTree(glm::vec3(-3, 11, 0));
+		addTree(StaticBits, StaticBitSizes);
+
+		makeTree(glm::vec3(0, 0.4, 0.05));
+		translateTree(glm::vec3(-4, 8, 0));
+		addTree(StaticBits, StaticBitSizes);
+
+		makeTree(glm::vec3(0, 0.4, 0.05));
+		translateTree(glm::vec3(-26, 4, 0));
+		addTree(StaticBits, StaticBitSizes);
+
+		makeTree(glm::vec3(0, 0.4, 0.05));
+		translateTree(glm::vec3(-26.5, 1.5, 0));
+		addTree(StaticBits, StaticBitSizes);
+
+		makeTree(glm::vec3(0, 0.4, 0.05));
+		translateTree(glm::vec3(-24.5, 1, 0));
+		addTree(StaticBits, StaticBitSizes);
+
+		makeTree(glm::vec3(0, 0.4, 0.05));
+		translateTree(glm::vec3(-24, 4, 0));
+		addTree(StaticBits, StaticBitSizes);
+
+		makeTree(glm::vec3(0, 0.4, 0.05));
+		translateTree(glm::vec3(-24.5, 8, 0));
+		addTree(StaticBits, StaticBitSizes);
+
+		makeTree(glm::vec3(0, 0.4, 0.05));
+		translateTree(glm::vec3(-23, 12, 0));
+		addTree(StaticBits, StaticBitSizes);
+
+		makeTree(glm::vec3(0, 0.4, 0.05));
+		translateTree(glm::vec3(-23, 2, 0));
+		addTree(StaticBits, StaticBitSizes);
+
+		makeTree(glm::vec3(0, 0.4, 0.05));
+		translateTree(glm::vec3(-22, 7, 0));
+		addTree(StaticBits, StaticBitSizes);
+
+		makeTree(glm::vec3(0, 0.4, 0.05));
+		translateTree(glm::vec3(-23.5, 10, 0));
+		addTree(StaticBits, StaticBitSizes);
+
+		makeTree(glm::vec3(0, 0.4, 0.05));
+		translateTree(glm::vec3(-22, 0, 0));
+		addTree(StaticBits, StaticBitSizes);
+
+		makeTree(glm::vec3(0, 0.4, 0.05));
+		translateTree(glm::vec3(-22, 9, 0));
+		addTree(StaticBits, StaticBitSizes);
+
+		makeTree(glm::vec3(0, 0.4, 0.05));
+		translateTree(glm::vec3(-21, 2, 0));
+		addTree(StaticBits, StaticBitSizes);
+
+		makeTree(glm::vec3(0, 0.4, 0.05));
+		translateTree(glm::vec3(-21, 14, 0));
+		addTree(StaticBits, StaticBitSizes);
+
+		makeTree(glm::vec3(0, 0.4, 0.05));
+		translateTree(glm::vec3(-21, 18, 0));
+		addTree(StaticBits, StaticBitSizes);
+
+		makeTree(glm::vec3(0, 0.4, 0.05));
+		translateTree(glm::vec3(-20, 5, 0));
+		addTree(StaticBits, StaticBitSizes);
+
+		makeTree(glm::vec3(0, 0.4, 0.05));
+		translateTree(glm::vec3(-20, 9, 0));
+		addTree(StaticBits, StaticBitSizes);
+
+		makeTree(glm::vec3(0, 0.4, 0.05));
+		translateTree(glm::vec3(-18, 14, 0));
+		addTree(StaticBits, StaticBitSizes);
+
+		makeTree(glm::vec3(0, 0.4, 0.05));
+		translateTree(glm::vec3(-19, 21, 0));
+		addTree(StaticBits, StaticBitSizes);
+
+		makeTree(glm::vec3(0, 0.4, 0.05));
+		translateTree(glm::vec3(-17, 5, 0));
+		addTree(StaticBits, StaticBitSizes);
+
+		makeTree(glm::vec3(0, 0.4, 0.05));
+		translateTree(glm::vec3(-17, 8, 0));
+		addTree(StaticBits, StaticBitSizes);
+
+		makeTree(glm::vec3(0, 0.4, 0.05));
+		translateTree(glm::vec3(-17, 19, 0));
+		addTree(StaticBits, StaticBitSizes);
+
+		makeTree(glm::vec3(0, 0.4, 0.05));
+		translateTree(glm::vec3(-17, 24, 0));
+		addTree(StaticBits, StaticBitSizes);
+
+		makeTree(glm::vec3(0, 0.4, 0.05));
+		translateTree(glm::vec3(-15, 7, 0));
+		addTree(StaticBits, StaticBitSizes);
+
+		makeTree(glm::vec3(0, 0.4, 0.05));
+		translateTree(glm::vec3(-15, 10, 0));
+		addTree(StaticBits, StaticBitSizes);
+
+		makeTree(glm::vec3(0, 0.4, 0.05));
+		translateTree(glm::vec3(-15, 16, 0));
+		addTree(StaticBits, StaticBitSizes);
+
+		makeTree(glm::vec3(0, 0.4, 0.05));
+		translateTree(glm::vec3(-15, 19, 0));
+		addTree(StaticBits, StaticBitSizes);
+
+		makeTree(glm::vec3(0, 0.4, 0.05));
+		translateTree(glm::vec3(-15, 23, 0));
+		addTree(StaticBits, StaticBitSizes);
+
+		makeTree(glm::vec3(0, 0.4, 0.05));
+		translateTree(glm::vec3(-15, 26, 0));
+		addTree(StaticBits, StaticBitSizes);
+
+		makeTree(glm::vec3(0, 0.4, 0.05));
+		translateTree(glm::vec3(-13, 8, 0));
+		addTree(StaticBits, StaticBitSizes);
+
+		makeTree(glm::vec3(0, 0.4, 0.05));
+		translateTree(glm::vec3(-13, 11, 0));
+		addTree(StaticBits, StaticBitSizes);
+
+		makeTree(glm::vec3(0, 0.4, 0.05));
+		translateTree(glm::vec3(-13, 15, 0));
+		addTree(StaticBits, StaticBitSizes);
+
+		makeTree(glm::vec3(0, 0.4, 0.05));
+		translateTree(glm::vec3(-13, 19, 0));
+		addTree(StaticBits, StaticBitSizes);
+
+		makeTree(glm::vec3(0, 0.4, 0.05));
+		translateTree(glm::vec3(-13, 22, 0));
+		addTree(StaticBits, StaticBitSizes);
+
+		makeTree(glm::vec3(0, 0.4, 0.05));
+		translateTree(glm::vec3(-13, 27, 0));
+		addTree(StaticBits, StaticBitSizes);
+
+		makeTree(glm::vec3(0, 0.4, 0.05));
+		translateTree(glm::vec3(-11, 5, 0));
+		addTree(StaticBits, StaticBitSizes);
+
+		makeTree(glm::vec3(0, 0.4, 0.05));
+		translateTree(glm::vec3(-11, 7, 0));
+		addTree(StaticBits, StaticBitSizes);
+
+		makeTree(glm::vec3(0, 0.4, 0.05));
+		translateTree(glm::vec3(-11, 10, 0));
+		addTree(StaticBits, StaticBitSizes);
+
+		makeTree(glm::vec3(0, 0.4, 0.05));
+		translateTree(glm::vec3(-11, 13, 0));
+		addTree(StaticBits, StaticBitSizes);
+
+		makeTree(glm::vec3(0, 0.4, 0.05));
+		translateTree(glm::vec3(-11, 16, 0));
+		addTree(StaticBits, StaticBitSizes);
+
+		makeTree(glm::vec3(0, 0.4, 0.05));
+		translateTree(glm::vec3(-11, 19, 0));
+		addTree(StaticBits, StaticBitSizes);
+
+		makeTree(glm::vec3(0, 0.4, 0.05));
+		translateTree(glm::vec3(-11, 22, 0));
+		addTree(StaticBits, StaticBitSizes);
+
+		makeTree(glm::vec3(0, 0.4, 0.05));
+translateTree(glm::vec3(-8, 2, 0));
+addTree(StaticBits, StaticBitSizes);
+
+makeTree(glm::vec3(0, 0.4, 0.05));
+translateTree(glm::vec3(-8, 6, 0));
+addTree(StaticBits, StaticBitSizes);
+
+makeTree(glm::vec3(0, 0.4, 0.05));
+translateTree(glm::vec3(-9, 10, 0));
+addTree(StaticBits, StaticBitSizes);
+
+makeTree(glm::vec3(0, 0.4, 0.05));
+translateTree(glm::vec3(-8, 14, 0));
+addTree(StaticBits, StaticBitSizes);
+
+makeTree(glm::vec3(0, 0.4, 0.05));
+translateTree(glm::vec3(-9, 17, 0));
+addTree(StaticBits, StaticBitSizes);
+
+makeTree(glm::vec3(0, 0.4, 0.05));
+translateTree(glm::vec3(-8, 20, 0));
+addTree(StaticBits, StaticBitSizes);
+
+makeTree(glm::vec3(0, 0.4, 0.05));
+translateTree(glm::vec3(-8, 24, 0));
+addTree(StaticBits, StaticBitSizes);
+
+makeTree(glm::vec3(0, 0.4, 0.05));
+translateTree(glm::vec3(-2, 6, 0));
+addTree(StaticBits, StaticBitSizes);
+
+makeTree(glm::vec3(0, 0.4, 0.05));
+translateTree(glm::vec3(-3, 17, 0));
+addTree(StaticBits, StaticBitSizes);
+
+makeTree(glm::vec3(0, 0.4, 0.05));
+translateTree(glm::vec3(-2, 14, 0));
+addTree(StaticBits, StaticBitSizes);
+
+makeTree(glm::vec3(0, 0.4, 0.05));
+translateTree(glm::vec3(-2, 19, 0));
+addTree(StaticBits, StaticBitSizes);
+
+makeTree(glm::vec3(0, 0.4, 0.05));
+translateTree(glm::vec3(-3, 24, 0));
+addTree(StaticBits, StaticBitSizes);
+
+makeTree(glm::vec3(0, 0.4, 0.05));
+translateTree(glm::vec3(0, 5, 0));
+addTree(StaticBits, StaticBitSizes);
+
+makeTree(glm::vec3(0, 0.4, 0.05));
+translateTree(glm::vec3(0, 9, 0));
+addTree(StaticBits, StaticBitSizes);
+
+makeTree(glm::vec3(0, 0.4, 0.05));
+translateTree(glm::vec3(1, 13, 0));
+addTree(StaticBits, StaticBitSizes);
+
+makeTree(glm::vec3(0, 0.4, 0.05));
+translateTree(glm::vec3(1, 17, 0));
+addTree(StaticBits, StaticBitSizes);
+
+makeTree(glm::vec3(0, 0.4, 0.05));
+translateTree(glm::vec3(1, 20, 0));
+addTree(StaticBits, StaticBitSizes);
+
+makeTree(glm::vec3(0, 0.4, 0.05));
+translateTree(glm::vec3(0, 24, 0));
+addTree(StaticBits, StaticBitSizes);
+
+makeTree(glm::vec3(0, 0.4, 0.05));
+translateTree(glm::vec3(3, 8, 0));
+addTree(StaticBits, StaticBitSizes);
+
+makeTree(glm::vec3(0, 0.4, 0.05));
+translateTree(glm::vec3(4, 12, 0));
+addTree(StaticBits, StaticBitSizes);
+
+makeTree(glm::vec3(0, 0.4, 0.05));
+translateTree(glm::vec3(4, 17, 0));
+addTree(StaticBits, StaticBitSizes);
+
+makeTree(glm::vec3(0, 0.4, 0.05));
+translateTree(glm::vec3(3, 21, 0));
+addTree(StaticBits, StaticBitSizes);
+
+makeTree(glm::vec3(0, 0.4, 0.05));
+translateTree(glm::vec3(4, 25, 0));
+addTree(StaticBits, StaticBitSizes);
+
+makeTree(glm::vec3(0, 0.4, 0.05));
+translateTree(glm::vec3(-5, 17, 0));
+addTree(StaticBits, StaticBitSizes);
+
+makeTree(glm::vec3(0, 0.4, 0.05));
+translateTree(glm::vec3(-5, 21, 0));
+addTree(StaticBits, StaticBitSizes);
+
+	}
+	{
+	makeTree(glm::vec3(0, 0.4, 0.05));
+	translateTree(glm::vec3(0, -8, 0));
+	addTree(StaticBits, StaticBitSizes);
+
+	makeTree(glm::vec3(0, 0.4, 0.05));
+	translateTree(glm::vec3(0, -12, 0));
+	addTree(StaticBits, StaticBitSizes);
+
+	makeTree(glm::vec3(0, 0.4, 0.05));
+	translateTree(glm::vec3(1, -15, 0));
+	addTree(StaticBits, StaticBitSizes);
+
+	makeTree(glm::vec3(0, 0.4, 0.05));
+	translateTree(glm::vec3(0, -18, 0));
+	addTree(StaticBits, StaticBitSizes);
+
+	makeTree(glm::vec3(0, 0.4, 0.05));
+	translateTree(glm::vec3(-1, -22, 0));
+	addTree(StaticBits, StaticBitSizes);
+
+	makeTree(glm::vec3(0, 0.4, 0.05));
+	translateTree(glm::vec3(4, -10, 0));
+	addTree(StaticBits, StaticBitSizes);
+
+	makeTree(glm::vec3(0, 0.4, 0.05));
+	translateTree(glm::vec3(4, -14, 0));
+	addTree(StaticBits, StaticBitSizes);
+
+	makeTree(glm::vec3(0, 0.4, 0.05));
+	translateTree(glm::vec3(3, -18, 0));
+	addTree(StaticBits, StaticBitSizes);
+
+	makeTree(glm::vec3(0, 0.4, 0.05));
+	translateTree(glm::vec3(4, -21, 0));
+	addTree(StaticBits, StaticBitSizes);
+
+	makeTree(glm::vec3(0, 0.4, 0.05));
+	translateTree(glm::vec3(7, -9, 0));
+	addTree(StaticBits, StaticBitSizes);
+
+	makeTree(glm::vec3(0, 0.4, 0.05));
+	translateTree(glm::vec3(8, -13, 0));
+	addTree(StaticBits, StaticBitSizes);
+
+	makeTree(glm::vec3(0, 0.4, 0.05));
+	translateTree(glm::vec3(8, -17, 0));
+	addTree(StaticBits, StaticBitSizes);
+
+	makeTree(glm::vec3(0, 0.4, 0.05));
+	translateTree(glm::vec3(10, -12, 0));
+	addTree(StaticBits, StaticBitSizes);
+
+	makeTree(glm::vec3(0, 0.4, 0.05));
+	translateTree(glm::vec3(9, -16, 0));
+	addTree(StaticBits, StaticBitSizes);
+
+	makeTree(glm::vec3(0, 0.4, 0.05));
+	translateTree(glm::vec3(-3, -9, 0));
+	addTree(StaticBits, StaticBitSizes);
+
+	makeTree(glm::vec3(0, 0.4, 0.05));
+	translateTree(glm::vec3(-4, -13, 0));
+	addTree(StaticBits, StaticBitSizes);
+
+	makeTree(glm::vec3(0, 0.4, 0.05));
+	translateTree(glm::vec3(-3, -16, 0));
+	addTree(StaticBits, StaticBitSizes);
+
+	makeTree(glm::vec3(0, 0.4, 0.05));
+	translateTree(glm::vec3(-3, -20, 0));
+	addTree(StaticBits, StaticBitSizes);
+
+	makeTree(glm::vec3(0, 0.4, 0.05));
+	translateTree(glm::vec3(-7, -11, 0));
+	addTree(StaticBits, StaticBitSizes);
+
+	makeTree(glm::vec3(0, 0.4, 0.05));
+	translateTree(glm::vec3(-7, -15, 0));
+	addTree(StaticBits, StaticBitSizes);
+
+	makeTree(glm::vec3(0, 0.4, 0.05));
+	translateTree(glm::vec3(-7, -19, 0));
+	addTree(StaticBits, StaticBitSizes);
+
+	makeTree(glm::vec3(0, 0.4, 0.05));
+	translateTree(glm::vec3(-10, -13, 0));
+	addTree(StaticBits, StaticBitSizes);
+
+	makeTree(glm::vec3(0, 0.4, 0.05));
+	translateTree(glm::vec3(-10, -17, 0));
+	addTree(StaticBits, StaticBitSizes);
+
+	}
+	{
+		makeTree(glm::vec3(0, 0.4, 0.05));
+		translateTree(glm::vec3(20, -15, 0));
+		addTree(StaticBits, StaticBitSizes);
+
+		makeTree(glm::vec3(0, 0.4, 0.05));
+		translateTree(glm::vec3(19, 17, 0));
+		addTree(StaticBits, StaticBitSizes);
+
+		makeTree(glm::vec3(0, 0.4, 0.05));
+		translateTree(glm::vec3(22, 13, 0));
+		addTree(StaticBits, StaticBitSizes);
+
+		makeTree(glm::vec3(0, 0.4, 0.05));
+		translateTree(glm::vec3(-24, -10, 0));
+		addTree(StaticBits, StaticBitSizes);
+
+	}
 
 	struct Vertex* rock = makeRockLarge(glm::vec3(0.2f, 0.1f, 0.0f));
 	translateRockLarge(glm::vec3(2.0f, 0.0f, 0.0f), rock);
@@ -157,9 +553,9 @@ void IncreaseSpeed() {
 }
 
 void DecreaseSpeed() {
-	if (speed > 0) {
+	//if (speed > 0) {
 		speed -= speedIncrement;
-	}
+	//}
 }
 
 void RotateX(GLfloat angle) {
@@ -187,7 +583,7 @@ void RotateZ(GLfloat angle) {
 }
 
 void MoveToPos(glm::vec3 pos) {
-
+	Position = pos;
 }
 
 void Move(glm::vec3 Direction) {
