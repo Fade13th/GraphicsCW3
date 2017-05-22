@@ -25,7 +25,7 @@ static GLdouble* toBoundary(GLdouble a[], GLdouble b[], float radius) {
 static int s = 0;
 
 struct Vertex* makeBalloon(int divisions, float radius, float length, glm::vec3 colour) {
-	int size = 24;
+	int size = 8 * 3;
 	s = size;
 
 	GLfloat R = colour[0];
@@ -123,8 +123,12 @@ struct Vertex* makeBalloon(int divisions, float radius, float length, glm::vec3 
 		current = next;
 	}
 
+	GLdouble y = 25, z = 25;
+
 	for (int i = 0; i < s; i++) {
 		current[i].position[0] = current[i].position[0] * length;
+		current[i].position[1] = current[i].position[1] + y;
+		current[i].position[2] = current[i].position[2] + z;
 	}
 
 	return current;

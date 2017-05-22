@@ -9,13 +9,13 @@ void makeZepplin(glm::vec3 colour) {
 	balloon = makeBalloon(4, 1, 2, glm::vec3(0.6, 0.6, 0.6));
 
 	cockpit = makeTankBody(0.8, 0.6, 1, colour);
-	translateTankBody(glm::vec3(0, 0, -1.4), cockpit);
+	translateTankBody(glm::vec3(0, 25, 23.6), cockpit);
 
 	fin1 = makeRectangle(1, 0.1, 1, colour);
-	translateRectangle(glm::vec3(0.7, 0, 0), fin1);
+	translateRectangle(glm::vec3(0.7, 25, 25), fin1);
 
 	fin2 = makeRectangle(0.1, 2, 0.7, colour);
-	translateRectangle(glm::vec3(1, 0, -1), fin2);
+	translateRectangle(glm::vec3(1, 25, 24), fin2);
 
 }
 
