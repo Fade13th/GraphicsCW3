@@ -8,9 +8,11 @@ struct Vertex* makeRockLarge(glm::vec3 colour) {
 	int size = 3 * 46;
 	s = size;
 
-	GLfloat R = colour[0];
-	GLfloat G = colour[1];
-	GLfloat B = colour[2];
+	glm::vec3 col = glm::vec3(0.33, 0.3, 0.27);
+
+	GLfloat R = col[0];
+	GLfloat G = col[1];
+	GLfloat B = col[2];
 
 	current = new struct Vertex[s];
 

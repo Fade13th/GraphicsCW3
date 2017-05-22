@@ -76,7 +76,7 @@ float operator* (glm::vec3 v, glm::vec3 u)	//dot product
 }
 
 void SetupGeometry() {	
-	makeColusseum(35.0f, 40.0f, 25.0f, glm::vec3(0.2f,0.3f,0.2f));
+	makeColusseum(35.0f, 50.0f, 25.0f, glm::vec3(0.15f,0.17f,0.15f));
 	addColusseum(StaticBits, StaticBitSizes);
 	{
 		makeTree(glm::vec3(0, 0.4, 0.05));
@@ -484,7 +484,7 @@ addTree(StaticBits, StaticBitSizes);
 		addTree(StaticBits, StaticBitSizes);
 
 		makeTree(glm::vec3(0, 0.4, 0.05));
-		translateTree(glm::vec3(19, 17, 0));
+		translateTree(glm::vec3(19, 25, 0));
 		addTree(StaticBits, StaticBitSizes);
 
 		makeTree(glm::vec3(0, 0.4, 0.05));
@@ -493,6 +493,22 @@ addTree(StaticBits, StaticBitSizes);
 
 		makeTree(glm::vec3(0, 0.4, 0.05));
 		translateTree(glm::vec3(-24, -10, 0));
+		addTree(StaticBits, StaticBitSizes);
+
+		makeTree(glm::vec3(0, 0.4, 0.05));
+		translateTree(glm::vec3(28, 5, 0));
+		addTree(StaticBits, StaticBitSizes);
+
+		makeTree(glm::vec3(0, 0.4, 0.05));
+		translateTree(glm::vec3(27, 13, 0));
+		addTree(StaticBits, StaticBitSizes);
+
+		makeTree(glm::vec3(0, 0.4, 0.05));
+		translateTree(glm::vec3(24, -3, 0));
+		addTree(StaticBits, StaticBitSizes);
+
+		makeTree(glm::vec3(0, 0.4, 0.05));
+		translateTree(glm::vec3(28, -12, 0));
 		addTree(StaticBits, StaticBitSizes);
 
 	}
@@ -519,6 +535,18 @@ addTree(StaticBits, StaticBitSizes);
 
 		rock = makeRockLarge(glm::vec3(0.2f, 0.1f, 0.0f));
 		translateRockLarge(glm::vec3(22.0f, -17.0f, 0.0f), rock);
+		addRockLarge(StaticBits, StaticBitSizes, rock);
+
+		rock = makeRockLarge(glm::vec3(0.2f, 0.1f, 0.0f));
+		translateRockLarge(glm::vec3(25.0f, 8.0f, 0.0f), rock);
+		addRockLarge(StaticBits, StaticBitSizes, rock);
+
+		rock = makeRockLarge(glm::vec3(0.2f, 0.1f, 0.0f));
+		translateRockLarge(glm::vec3(20.0f, -7.0f, 0.0f), rock);
+		addRockLarge(StaticBits, StaticBitSizes, rock);
+
+		rock = makeRockLarge(glm::vec3(0.2f, 0.1f, 0.0f));
+		translateRockLarge(glm::vec3(5.0f, -22.0f, 0.0f), rock);
 		addRockLarge(StaticBits, StaticBitSizes, rock);
 
 	}
@@ -657,7 +685,7 @@ void Render(int i) {
 	if (time > 360)
 		time = 0;
 
-	glm::vec3 light = glm::vec3(0.0f, 0.0f, 10.0f);
+	glm::vec3 light = glm::vec3(5.0f, 5.0f, 30.0f);
 	GLfloat angle;
 	glm::mat4 Projection = glm::perspective(45.0f, 1.0f, 0.1f, 100.0f);
 	float t = glfwGetTime();

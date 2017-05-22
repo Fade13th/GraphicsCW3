@@ -65,21 +65,21 @@ struct Vertex* makeColusseumBase(float innerSize, float outerSize, float height,
 
 
 		current[k++] = (Vertex) { { innerRing[i][0], innerRing[i][1], 0.0 }, { R, G, B } };
-		current[k++] = (Vertex) { { innerRing[j][0], innerRing[j][1], 0.0 }, { R, G, B } };
 		current[k++] = (Vertex) { { innerRing[i][0], innerRing[i][1], height }, { R, G, B } };
+		current[k++] = (Vertex) { { innerRing[j][0], innerRing[j][1], 0.0 }, { R, G, B } };
 
 		current[k++] = (Vertex) { { innerRing[j][0], innerRing[j][1], height }, { R, G, B } };
-		current[k++] = (Vertex) { { innerRing[i][0], innerRing[i][1], height }, { R, G, B } };
 		current[k++] = (Vertex) { { innerRing[j][0], innerRing[j][1], 0.0 }, { R, G, B } };
+		current[k++] = (Vertex) { { innerRing[i][0], innerRing[i][1], height }, { R, G, B } };
 
 
 		current[k++] = (Vertex) { { outerRing[i][0], outerRing[i][1], 0.0 }, { R, G, B } };
-		current[k++] = (Vertex) { { outerRing[j][0], outerRing[j][1], 0.0 }, { R, G, B } };
 		current[k++] = (Vertex) { { outerRing[i][0], outerRing[i][1], height }, { R, G, B } };
+		current[k++] = (Vertex) { { outerRing[j][0], outerRing[j][1], 0.0 }, { R, G, B } };
 
 		current[k++] = (Vertex) { { outerRing[j][0], outerRing[j][1], height }, { R, G, B } };
-		current[k++] = (Vertex) { { outerRing[i][0], outerRing[i][1], height }, { R, G, B } };
 		current[k++] = (Vertex) { { outerRing[j][0], outerRing[j][1], 0.0 }, { R, G, B } };
+		current[k++] = (Vertex) { { outerRing[i][0], outerRing[i][1], height }, { R, G, B } };
 	}
 
 	return current;

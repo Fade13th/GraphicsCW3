@@ -6,7 +6,7 @@ static struct Vertex* cone2;
 static struct Vertex* cone3;
 
 void makeTree(glm::vec3 colour) {
-	trunk = makeCylinder(0.2, 1.5, glm::vec3(0.2, 0.15, 0.01));
+	trunk = makeCylinder(0.2, 1.5, glm::vec3(0.4, 0.3, 0.1));
 
 	cone1 = makeCone(0.8, 1.4, colour);
 	translateCone(glm::vec3(0,0,1.5), cone1);

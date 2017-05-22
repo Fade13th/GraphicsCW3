@@ -23,6 +23,35 @@ static void key_callback(GLFWwindow* window, int key, int scancode, int action, 
 
 	if (IsTour()) return;
 
+	if ((key == GLFW_KEY_P) && (action == GLFW_PRESS)) {
+		MoveToPos(glm::vec3(-32.4286, 14.3892, 28.7423));
+		SetForward(glm::vec3(0.7910, -0.4587, -0.4048));
+		RotateZ(-100);
+		StopMove();
+	}
+
+	if ((key == GLFW_KEY_L) && (action == GLFW_PRESS)) {
+		MoveToPos(glm::vec3(19.6047, 3.1016, 0.9872));
+		SetForward(glm::vec3(-0.8966, -0.4367, -0.0735));
+		RotateZ(100);
+		StopMove();
+	}
+
+	if ((key == GLFW_KEY_M) && (action == GLFW_PRESS)) {
+		MoveToPos(glm::vec3(12.885, -46.5642, 20.3874));
+		SetForward(glm::vec3(-0.5722, -0.7934, -0.2077));
+		RotateZ(115);
+		RotateY(-80);
+		RotateZ(-15);
+		StopMove();
+	}
+
+	if ((key == GLFW_KEY_O) && (action == GLFW_PRESS)) {
+		MoveToPos(glm::vec3(0.0, 0.0, 90.0));
+		SetForward(glm::vec3(0.0, 0.0, -1.0));
+		StopMove();
+	}
+
 	if ((key == GLFW_KEY_UP || key == GLFW_KEY_W) && (action == GLFW_PRESS || action == GLFW_REPEAT)) {
 		IncreaseSpeed();
 	}
